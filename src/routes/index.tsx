@@ -91,7 +91,7 @@ const projects: Project[] = [
       { k: "Semanal", v: "cadência executiva" },
     ],
     stack: ["Power BI", "DAX", "Power Query", "SQL", "VBA"],
-    href: "https://github.com/",
+    href: "https://github.com/LuizEduardoSilvaSilva",
   },
   {
     n: "02",
@@ -105,7 +105,7 @@ const projects: Project[] = [
       { k: "2 estados", v: "cobertura regional" },
     ],
     stack: ["Excel Avançado", "VBA", "KPIs", "Governança"],
-    href: "https://github.com/",
+    href: "https://github.com/LuizEduardoSilvaSilva",
   },
   {
     n: "03",
@@ -119,7 +119,7 @@ const projects: Project[] = [
       { k: "1 ano", v: "ciclo completo" },
     ],
     stack: ["Excel", "VBA", "Macros", "Relatórios"],
-    href: "https://github.com/",
+    href: "https://github.com/LuizEduardoSilvaSilva",
   },
   {
     n: "04",
@@ -133,7 +133,7 @@ const projects: Project[] = [
       { k: "Sigiloso", v: "dados anonimizados" },
     ],
     stack: ["Power BI", "DAX", "Power Query", "Modelagem", "Slicers"],
-    href: "https://github.com/",
+    href: "https://github.com/LuizEduardoSilvaSilva",
     visual: capivariMockup,
     wireframe: [
       { name: "Inadimplência", blocks: ["KPI", "KPI", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela"] },
@@ -497,13 +497,13 @@ function Portfolio() {
 
             <ul className="space-y-4 border-t border-primary-foreground/15 pt-8 md:border-l md:border-t-0 md:pl-10 md:pt-0">
               <li>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="group flex items-center justify-between gap-4 text-sm">
+                <a href="https://www.linkedin.com/in/luizsilvaesilva/" target="_blank" rel="noreferrer" className="group flex items-center justify-between gap-4 text-sm">
                   <span className="inline-flex items-center gap-3 text-primary-foreground/80"><Linkedin className="h-4 w-4" /> LinkedIn</span>
                   <ArrowUpRight className="h-4 w-4 text-primary-foreground/40 transition group-hover:text-accent" />
                 </a>
               </li>
               <li>
-                <a href="https://github.com/" target="_blank" rel="noreferrer" className="group flex items-center justify-between gap-4 text-sm">
+                <a href="https://github.com/LuizEduardoSilvaSilva" target="_blank" rel="noreferrer" className="group flex items-center justify-between gap-4 text-sm">
                   <span className="inline-flex items-center gap-3 text-primary-foreground/80"><Github className="h-4 w-4" /> GitHub</span>
                   <ArrowUpRight className="h-4 w-4 text-primary-foreground/40 transition group-hover:text-accent" />
                 </a>
