@@ -21,14 +21,60 @@ import capivariMockup from "@/assets/case-capivari-mockup.jpg";
 import heroBanner from "@/assets/hero-banner.png";
 import logoIcon from "@/assets/logo-icon.png";
 
+const SITE_URL = "https://luizeduardodev.lovable.app";
+const PAGE_TITLE = "Luiz Eduardo Silva e Silva — Analista de Dados & BI";
+const PAGE_DESCRIPTION =
+  "Portfólio profissional de Luiz Eduardo Silva e Silva — Analista de Dados & BI. Power BI, SQL, governança e dashboards executivos.";
+const OG_IMAGE =
+  "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/dad00b1f-91d4-47e6-a517-80107bc8c49b";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Luiz Eduardo Silva e Silva — Analista de Dados & BI" },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESCRIPTION },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESCRIPTION },
+      { property: "og:url", content: SITE_URL + "/" },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:title", content: PAGE_TITLE },
+      { name: "twitter:description", content: PAGE_DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL + "/" }],
+    scripts: [
       {
-        name: "description",
-        content:
-          "Portfólio profissional de Luiz Eduardo Silva e Silva — Analista de Dados & BI. Power BI, SQL, governança e dashboards executivos.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Luiz Eduardo Silva e Silva",
+          jobTitle: "Analista de Dados & BI",
+          url: SITE_URL,
+          image: OG_IMAGE,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Curitiba",
+            addressRegion: "PR",
+            addressCountry: "BR",
+          },
+          email: "mailto:luiz.e.silva.silva@gmail.com",
+          telephone: "+55-41-98902-3978",
+          sameAs: [
+            "https://www.linkedin.com/in/luizsilvaesilva/",
+            "https://github.com/LuizEduardoSilvaSilva",
+          ],
+          contactPoint: [
+            {
+              "@type": "ContactPoint",
+              contactType: "professional",
+              email: "luiz.e.silva.silva@gmail.com",
+              telephone: "+55-41-98902-3978",
+              areaServed: "BR",
+              availableLanguage: ["Portuguese", "English"],
+            },
+          ],
+        }),
       },
     ],
   }),
@@ -154,7 +200,11 @@ function Portfolio() {
       {/* NAV */}
       <header className="sticky top-0 z-40 border-b border-hairline bg-background/80 backdrop-blur-md">
         <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          <a href="#top" className="flex items-center gap-2.5 text-sm font-semibold tracking-tight">
+          <a
+            href="#top"
+            aria-label="Luiz Eduardo Silva e Silva"
+            className="flex items-center gap-2.5 text-sm font-semibold tracking-tight"
+          >
             <img src={logoIcon} alt="" className="h-8 w-8 rounded-md object-cover" />
             <span className="hidden sm:inline">Luiz Eduardo Silva e Silva</span>
           </a>
@@ -177,6 +227,9 @@ function Portfolio() {
       <section id="top" className="relative overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-70" aria-hidden />
         <div className="relative mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
+          <h1 className="sr-only">
+            Luiz Eduardo Silva e Silva — Analista de Dados & BI
+          </h1>
           <img
             src={heroBanner}
             alt="Luiz Eduardo Silva e Silva — Analista de Dados & BI"
