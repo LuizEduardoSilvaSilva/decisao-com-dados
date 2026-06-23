@@ -84,7 +84,7 @@ const projects: Project[] = [
     title: "Relatório Executivo Semanal — 83 slides",
     client: "NRM Gestão em Carteira",
     summary:
-      "Consolidação de KPIs de vendas, captação, recebíveis, inadimplência e campanhas de cobrança para o CEO e sócios de 4 empresas simultaneamente.",
+      "Consolidação de KPIs de vendas, captação, recebíveis, inadimplência e campanhas de cobrança para o CEO e sócios de 4 empresas simultaneamente. No GitHub: README com contexto de negócio, arquitetura de dados, queries SQL, lógica DAX e documentação de governança.",
     impact: [
       { k: "4", v: "empresas atendidas" },
       { k: "83", v: "slides automatizados" },
@@ -98,7 +98,7 @@ const projects: Project[] = [
     title: "Field Quality Analytics — Coca-Cola / Nielsen",
     client: "Nielsen Brasil",
     summary:
-      "Dashboards de monitoramento e KPIs de qualidade de auditoria em campo (PR/SC), com automação via macros para garantir integridade em escala regional.",
+      "Dashboards de monitoramento e KPIs de qualidade de auditoria em campo (PR/SC), com automação via macros para garantir integridade em escala regional. No GitHub: README com escopo da operação, macros documentadas, estrutura de KPIs e prints anonimizados do processo.",
     impact: [
       { k: "+22%", v: "taxa de conformidade" },
       { k: "−35%", v: "erros de campo" },
@@ -112,7 +112,7 @@ const projects: Project[] = [
     title: "Painel Financeiro & Operacional — Conserta Smart",
     client: "Conserta Smart — Quatro Barras",
     summary:
-      "Dashboards de KPIs financeiros e operacionais com automações em Excel/VBA para gestão proprietária, focando rentabilidade e retrabalho.",
+      "Dashboards de KPIs financeiros e operacionais com automações em Excel/VBA para gestão proprietária, focando rentabilidade e retrabalho. No GitHub: README com objetivos do negócio, macros VBA comentadas, estrutura de relatórios e prints do layout.",
     impact: [
       { k: "+20%", v: "rentabilidade" },
       { k: "−20%", v: "retrabalho" },
@@ -126,7 +126,7 @@ const projects: Project[] = [
     title: "Gestão Financeira de Carteira",
     client: "NRM Gestão em Carteira",
     summary:
-      "Suite de 6 páginas em Power BI para acompanhamento de inadimplência, contratos vigentes, antecipações, vendas vs. cancelamentos e safras. Construí  do dentro da operação NRM — exibido aqui com dados 100% fictícios e layout anonimizado por sigilo contratual.",
+      "Suite de 6 páginas em Power BI para acompanhamento de inadimplência, contratos vigentes, antecipações, vendas vs. cancelamentos e safras. Construído dentro da operação NRM — exibido aqui com dados 100% fictícios e layout anonimizado por sigilo contratual. No GitHub: README com contexto da carteira, modelagem dimensional, DAX comentado, queries de staging e wireframes de cada página.",
     impact: [
       { k: "6", v: "páginas analíticas" },
       { k: "3", v: "frentes (atual, atraso, antecipação)" },
@@ -287,6 +287,20 @@ function Portfolio() {
             </p>
           </div>
 
+          <div className="mt-8 rounded-xl border border-hairline bg-surface p-6">
+            <div className="flex items-start gap-4">
+              <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-hairline bg-surface-elevated text-accent">
+                <BookOpen className="h-5 w-5" />
+              </span>
+              <div>
+                <h3 className="font-display text-sm font-medium text-foreground">Documentação pública, dados privados</h3>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Cada repositório contém <strong className="text-foreground">README com contexto de negócio, arquitetura de dados, DAX comentado, queries e wireframes</strong> — nunca dados reais ou informações sigilosas. É meu método de demonstrar o trabalho sem violar sigilo contratual.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <ol className="mt-14 space-y-px overflow-hidden rounded-2xl border border-hairline bg-hairline">
             {projects.map((p) => (
               <li key={p.n} className="group bg-surface-elevated">
@@ -307,6 +321,9 @@ function Portfolio() {
                         {p.title}
                       </h3>
                       <p className="mt-3 max-w-2xl text-muted-foreground">{p.summary}</p>
+                      <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent">
+                        <BookOpen className="h-3 w-3" /> Repositório documentado
+                      </div>
 
                       <div className="mt-6 flex flex-wrap gap-2">
                         {p.stack.map((s) => (
