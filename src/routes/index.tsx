@@ -108,6 +108,29 @@ const projects = [
     stack: ["Excel", "VBA", "Macros", "Relatórios"],
     href: "https://github.com/",
   },
+  {
+    n: "04",
+    title: "Gestão Financeira de Carteira — Capivari Nicole",
+    client: "NRM Gestão em Carteira · Cliente Capivari",
+    summary:
+      "Suite de 6 páginas em Power BI para acompanhamento de inadimplência, contratos vigentes, antecipações, vendas vs. cancelamentos e safras. Construído dentro da operação NRM para o cliente Capivari Nicole — exibido aqui com dados 100% fictícios e layout anonimizado por sigilo contratual.",
+    impact: [
+      { k: "6", v: "páginas analíticas" },
+      { k: "3", v: "frentes (atual, atraso, antecipação)" },
+      { k: "Sigiloso", v: "dados anonimizados" },
+    ],
+    stack: ["Power BI", "DAX", "Power Query", "Modelagem", "Slicers"],
+    href: "https://github.com/",
+    visual: capivariMockup,
+    wireframe: [
+      { name: "Inadimplência", blocks: ["KPI", "KPI", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela"] },
+      { name: "Current", blocks: ["KPI", "KPI", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela"] },
+      { name: "Antecipação", blocks: ["KPI", "KPI", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela"] },
+      { name: "Todos Contratos", blocks: ["KPI", "KPI", "Donut", "Tabela", "Tabela", "Filtros"] },
+      { name: "Inadimplentes +30d", blocks: ["Tabela", "Tabela", "Tabela", "Tabela", "Barras", "Barras Agrup."] },
+      { name: "Vendas x Cancel.", blocks: ["Colunas Agr.", "Colunas Agr.", "Colunas Agr."] },
+    ],
+  },
 ];
 
 function Portfolio() {
