@@ -15,6 +15,7 @@ import {
   Code2,
   TableProperties,
   Languages,
+  BookOpen,
 } from "lucide-react";
 import capivariMockup from "@/assets/case-capivari-mockup.jpg";
 
