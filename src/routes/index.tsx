@@ -22,7 +22,7 @@ import capivariMockup from "@/assets/case-capivari-mockup.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Luiz Eduardo Silva — Analista de Dados & BI" },
+      { title: "Luiz Eduardo Silva e Silva — Analista de Dados & BI" },
       {
         name: "description",
         content:
@@ -156,7 +156,7 @@ function Portfolio() {
             <span className="grid h-8 w-8 place-items-center rounded-md bg-primary text-primary-foreground font-mono text-xs">
               LE
             </span>
-            <span className="hidden sm:inline">Luiz Eduardo Silva</span>
+            <span className="hidden sm:inline">Luiz Eduardo Silva e Silva</span>
           </a>
           <ul className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
             <li><a href="#skills" className="transition hover:text-foreground">Habilidades</a></li>
