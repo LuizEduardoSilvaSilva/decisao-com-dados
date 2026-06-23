@@ -155,9 +155,7 @@ function Portfolio() {
       <header className="sticky top-0 z-40 border-b border-hairline bg-background/80 backdrop-blur-md">
         <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           <a href="#top" className="flex items-center gap-2.5 text-sm font-semibold tracking-tight">
-            <span className="grid h-8 w-8 place-items-center rounded-md bg-primary text-primary-foreground font-mono text-xs">
-              LE
-            </span>
+            <img src={logoIcon} alt="" className="h-8 w-8 rounded-md object-cover" />
             <span className="hidden sm:inline">Luiz Eduardo Silva e Silva</span>
           </a>
           <ul className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
@@ -178,16 +176,14 @@ function Portfolio() {
       {/* HERO */}
       <section id="top" className="relative overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-70" aria-hidden />
-        <div className="relative mx-auto max-w-6xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
-          <div className="section-eyebrow mb-8">
-            <span className="section-eyebrow-dot" />
-            Analista de Dados · Power BI · SQL · Governança
-          </div>
-
-          <h1 className="max-w-4xl text-5xl font-medium leading-[1.02] sm:text-6xl md:text-7xl">
-            Transformo dados dispersos em{" "}
-            <span className="italic text-accent">decisão executiva</span> — semana após semana.
-          </h1>
+        <div className="relative mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
+          <img
+            src={heroBanner}
+            alt="Luiz Eduardo Silva e Silva — Analista de Dados & BI"
+            className="w-full rounded-xl border border-hairline shadow-elevated"
+            width={1372}
+            height={784}
+          />
 
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             Sou <strong className="text-foreground">Luiz Eduardo Silva e Silva</strong>, Analista
@@ -196,7 +192,7 @@ function Portfolio() {
             decisões para CEOs, sócios e times multidisciplinares.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#cases"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-elevated transition hover:opacity-90"
