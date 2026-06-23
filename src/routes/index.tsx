@@ -318,6 +318,60 @@ function Portfolio() {
                     </span>
                   </div>
 
+                  {p.visual && (
+                    <figure className="mt-8 overflow-hidden rounded-xl border border-hairline bg-background">
+                      <div className="flex items-center justify-between border-b border-hairline bg-surface px-4 py-2 text-[10px] uppercase tracking-wider text-muted-foreground">
+                        <span className="inline-flex items-center gap-2">
+                          <Lock className="h-3 w-3" /> Mockup ilustrativo · dados 100% fictícios
+                        </span>
+                        <span className="font-mono">Power BI · Layout original</span>
+                      </div>
+                      <img
+                        src={p.visual}
+                        alt={`Mockup do dashboard ${p.title}`}
+                        width={1536}
+                        height={1024}
+                        loading="lazy"
+                        className="block w-full"
+                      />
+                    </figure>
+                  )}
+
+                  {p.wireframe && (
+                    <div className="mt-8">
+                      <div className="mb-3 flex items-center justify-between text-[10px] uppercase tracking-wider text-muted-foreground">
+                        <span>Estrutura · {p.wireframe.length} páginas</span>
+                        <span className="font-mono">wireframe</span>
+                      </div>
+                      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                        {p.wireframe.map((pg) => (
+                          <div key={pg.name} className="rounded-lg border border-hairline bg-surface p-3">
+                            <div className="mb-2 flex items-center justify-between">
+                              <span className="text-xs font-medium text-foreground">{pg.name}</span>
+                              <span className="font-mono text-[10px] text-muted-foreground">{pg.blocks.length} blocos</span>
+                            </div>
+                            <div className="grid grid-cols-3 gap-1">
+                              {pg.blocks.map((b, idx) => (
+                                <div
+                                  key={`${pg.name}-${idx}`}
+                                  className={`rounded-sm border border-hairline px-1.5 py-1 text-center font-mono text-[9px] uppercase tracking-wider ${
+                                    b.startsWith("KPI")
+                                      ? "bg-accent/10 text-accent"
+                                      : b.includes("Donut") || b.includes("Barras") || b.includes("Colunas")
+                                      ? "bg-primary/5 text-foreground/80"
+                                      : "bg-background text-muted-foreground"
+                                  }`}
+                                >
+                                  {b}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   <dl className="mt-8 grid grid-cols-3 divide-x divide-hairline border-t border-hairline pt-6">
                     {p.impact.map((i) => (
                       <div key={i.v} className="px-4 first:pl-0 last:pr-0">
