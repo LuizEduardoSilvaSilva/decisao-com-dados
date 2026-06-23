@@ -277,7 +277,7 @@ function Portfolio() {
                 <span className="section-eyebrow-dot" /> Projetos selecionados
               </div>
               <h2 className="text-4xl font-medium leading-tight sm:text-5xl">
-                Três cases. Três contextos. <span className="italic text-accent">Um padrão de impacto.</span>
+                Quatro cases. Contextos distintos. <span className="italic text-accent">Um padrão de impacto.</span>
               </h2>
             </div>
             <p className="text-sm text-muted-foreground md:max-w-xs">
