@@ -122,7 +122,7 @@ const projects: Project[] = [
   },
   {
     n: "04",
-    title: "Gestão Financeira de Carteira — Capivari Nicole",
+    title: "Gestão Financeira de Carteira",
     client: "NRM Gestão em Carteira · Cliente Capivari",
     summary:
       "Suite de 6 páginas em Power BI para acompanhamento de inadimplência, contratos vigentes, antecipações, vendas vs. cancelamentos e safras. Construído dentro da operação NRM para o cliente Capivari Nicole — exibido aqui com dados 100% fictícios e layout anonimizado por sigilo contratual.",
