@@ -18,6 +18,8 @@ import {
   BookOpen,
 } from "lucide-react";
 import capivariMockup from "@/assets/case-capivari-mockup.jpg";
+import heroBanner from "@/assets/hero-banner.png";
+import logoIcon from "@/assets/logo-icon.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
