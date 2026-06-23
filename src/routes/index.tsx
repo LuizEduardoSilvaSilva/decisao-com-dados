@@ -65,7 +65,19 @@ const skills = [
   },
 ];
 
-const projects = [
+type Project = {
+  n: string;
+  title: string;
+  client: string;
+  summary: string;
+  impact: { k: string; v: string }[];
+  stack: string[];
+  href: string;
+  visual?: string;
+  wireframe?: { name: string; blocks: string[] }[];
+};
+
+const projects: Project[] = [
   {
     n: "01",
     title: "Relatório Executivo Semanal — 83 slides",
