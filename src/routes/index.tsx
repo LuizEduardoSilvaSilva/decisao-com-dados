@@ -5,6 +5,7 @@ import {
   Database,
   Github,
   Linkedin,
+  Lock,
   Mail,
   MapPin,
   Sparkles,
@@ -15,6 +16,7 @@ import {
   TableProperties,
   Languages,
 } from "lucide-react";
+import capivariMockup from "@/assets/case-capivari-mockup.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
