@@ -192,7 +192,22 @@ const projects: Project[] = [
       { name: "Vendas x Cancel.", blocks: ["Colunas Agr.", "Colunas Agr.", "Colunas Agr."] },
     ],
   },
+  {
+    n: "05",
+    title: "Painel de Gestão da Carteira — Power BI",
+    client: "Projeto demonstrativo (dados fictícios)",
+    summary:
+      "Solução de BI que transforma um book operacional de clientes (planilha alimentada manualmente) em 3 dashboards conectados no Power BI, sobre um modelo em estrela construído por Power Query — sem alterar a forma de alimentação da base. Páginas: Carteira, Painel do Cliente (drill-through + busca com navegação) e Calendário Operacional (eventos de corte, emissão e vencimento). No GitHub: repositório público completo com .pbix, base fictícia, esquema estrela, tema, backgrounds, DAX e queries M documentados.",
+    impact: [
+      { k: "3", v: "dashboards conectados" },
+      { k: "100", v: "clientes fictícios" },
+      { k: "Público", v: "repositório aberto" },
+    ],
+    stack: ["Power BI", "DAX", "Power Query (M)", "Modelo Estrela", "Drill-through"],
+    href: "https://github.com/LuizEduardoSilvaSilva/Painel-de-Gest-o-de-Carteira---PowerBI",
+  },
 ];
+
 
 function Portfolio() {
   return (
