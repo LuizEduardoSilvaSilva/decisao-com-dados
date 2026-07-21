@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "sdk_version": "0.24.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "luizeduardo-portfolio-mcp",
+      "version": "0.1.0",
+      "title": "Portfólio Luiz Eduardo Silva e Silva — MCP"
+    },
+    "tools": [
+      {
+        "name": "get_profile",
+        "title": "Obter perfil profissional",
+        "description": "Retorna o perfil profissional público de Luiz Eduardo Silva e Silva (nome, cargo, localidade, resumo, links).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_skills",
+        "title": "Listar habilidades técnicas",
+        "description": "Lista as habilidades técnicas por categoria (visualizacao, modelagem, governanca, automacao). Sem filtro retorna todas.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "category": {
+              "description": "Filtrar por categoria específica.",
+              "type": "string",
+              "enum": [
+                "visualizacao",
+                "modelagem",
+                "governanca",
+                "automacao"
+              ]
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_projects",
+        "title": "Listar cases de projetos",
+        "description": "Lista os cases de projetos do portfólio com cliente, stack, impacto e link do GitHub. Aceita filtro opcional por id.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "ID do projeto (ex.: nrm, nielsen, conserta-smart, gestao-financeira).",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_contact",
+        "title": "Obter informações de contato",
+        "description": "Retorna as informações públicas de contato profissional (e-mail, telefone, LinkedIn, GitHub).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
