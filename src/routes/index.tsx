@@ -209,6 +209,11 @@ const projects: Project[] = [
     ],
     stack: ["Power BI", "DAX", "Power Query (M)", "Modelo Estrela", "Drill-through"],
     href: "https://github.com/LuizEduardoSilvaSilva/Painel-de-Gest-o-de-Carteira---PowerBI",
+    gallery: [
+      { src: painelCarteira01, caption: "Carteira — visão geral de clientes e status" },
+      { src: painelCarteira02, caption: "Painel do Cliente — drill-through com busca e navegação" },
+      { src: painelCarteira03, caption: "Calendário Operacional — corte, emissão e vencimento" },
+    ],
   },
 ];
 
