@@ -465,6 +465,36 @@ function Portfolio() {
                     </div>
                   )}
 
+                  {p.gallery && (
+                    <div className="mt-8">
+                      <div className="mb-3 flex items-center justify-between text-[10px] uppercase tracking-wider text-muted-foreground">
+                        <span className="inline-flex items-center gap-2">
+                          <BarChart3 className="h-3 w-3" /> Dashboards do projeto · dados fictícios
+                        </span>
+                        <span className="font-mono">Power BI</span>
+                      </div>
+                      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        {p.gallery.map((g) => (
+                          <figure
+                            key={g.caption}
+                            className="overflow-hidden rounded-xl border border-hairline bg-background"
+                          >
+                            <img
+                              src={g.src}
+                              alt={g.caption}
+                              loading="lazy"
+                              className="block w-full"
+                            />
+                            <figcaption className="border-t border-hairline bg-surface px-3 py-2 text-xs text-muted-foreground">
+                              {g.caption}
+                            </figcaption>
+                          </figure>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+
                   <dl className="mt-8 grid grid-cols-3 divide-x divide-hairline border-t border-hairline pt-6">
                     {p.impact.map((i) => (
                       <div key={i.v} className="px-4 first:pl-0 last:pr-0">
