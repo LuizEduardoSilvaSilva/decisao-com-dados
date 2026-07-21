@@ -147,14 +147,14 @@ const projects: Project[] = [
   },
   {
     n: "02",
-    title: "Field Quality Analytics — Coca-Cola / Nielsen",
+    title: "Controle de Qualidade em Campo — Nielsen (auditoria Coca-Cola)",
     client: "Nielsen Brasil",
     summary:
-      "Dashboards de monitoramento e KPIs de qualidade de auditoria em campo (PR/SC), com automação via macros para garantir integridade em escala regional. No GitHub: README com escopo da operação, macros documentadas, estrutura de KPIs e prints anonimizados do processo.",
+      "Como Field Quality Specialist na auditoria de campo (PR/SC), criei planilhas e macros de apoio para monitorar KPIs de qualidade da operação — um envolvimento informal com dados que consolidou meu interesse pela área e me levou ao BI. No GitHub: README com escopo da operação, macros documentadas e estrutura de KPIs, com prints anonimizados.",
     impact: [
-      { k: "+22%", v: "taxa de conformidade" },
-      { k: "−35%", v: "erros de campo" },
-      { k: "2 estados", v: "cobertura regional" },
+      { k: "PR + SC", v: "cobertura regional" },
+      { k: "Macros", v: "automação de controle" },
+      { k: "Field QA", v: "papel de origem em dados" },
     ],
     stack: ["Excel Avançado", "VBA", "KPIs", "Governança"],
     href: "https://github.com/LuizEduardoSilvaSilva",
@@ -264,9 +264,10 @@ function Portfolio() {
 
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             Sou <strong className="text-foreground">Luiz Eduardo Silva e Silva</strong>, Analista
-            de Dados & BI com 10 anos aplicando dados em ambientes orientados a negócio.
-            Construo dashboards, KPIs e processos de governança que reduzem ruído e aceleram
-            decisões para CEOs, sócios e times multidisciplinares.
+            de Dados & BI. Ao longo de mais de uma década em ambientes orientados a negócio,
+            desenvolvi foco em transformar dados em decisão — construindo dashboards, KPIs e
+            processos de governança que reduzem ruído e aceleram decisões para CEOs, sócios e
+            times multidisciplinares.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -287,10 +288,10 @@ function Portfolio() {
           {/* meta strip */}
           <div className="mt-16 grid grid-cols-2 gap-y-6 border-t border-hairline pt-8 sm:grid-cols-4">
             {[
-              { k: "10", v: "anos com dados" },
+              { k: "10+", v: "anos de experiência profissional" },
               { k: "4", v: "empresas atendidas simultaneamente" },
-              { k: "+22%", v: "conformidade (Coca-Cola)" },
-              { k: "−35%", v: "erros de campo" },
+              { k: "83", v: "slides executivos automatizados" },
+              { k: "6", v: "dashboards em Power BI" },
             ].map((s) => (
               <div key={s.v}>
                 <div className="font-display text-3xl font-medium tracking-tight text-foreground">{s.k}</div>
@@ -353,7 +354,7 @@ function Portfolio() {
                 <span className="section-eyebrow-dot" /> Projetos selecionados
               </div>
               <h2 className="text-4xl font-medium leading-tight sm:text-5xl">
-                Quatro cases. Contextos distintos. <span className="italic text-accent">Um padrão de impacto.</span>
+                Cinco cases. Contextos distintos. <span className="italic text-accent">Um padrão de impacto.</span>
               </h2>
             </div>
             <p className="text-sm text-muted-foreground md:max-w-xs">
@@ -517,7 +518,7 @@ function Portfolio() {
             <span className="section-eyebrow-dot" /> Trajetória
           </div>
           <h2 className="max-w-3xl text-4xl font-medium leading-tight sm:text-5xl">
-            10 anos transformando dados em vantagem operacional.
+            Mais de uma década de trajetória, com foco crescente em dados e BI.
           </h2>
 
           <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-hairline bg-hairline md:grid-cols-2">
@@ -529,16 +530,16 @@ function Portfolio() {
                 icon: LineChart,
               },
               {
-                role: "Field Quality Specialist (FQS)",
-                org: "Nielsen Brasil",
-                when: "Jul/2015 — Mai/2018 · Curitiba/PR",
-                icon: ShieldCheck,
-              },
-              {
                 role: "Gerente Proprietário",
                 org: "Conserta Smart — Quatro Barras",
                 when: "Jan/2023 — Dez/2023 · Presencial",
                 icon: Workflow,
+              },
+              {
+                role: "Field Quality Specialist (FQS)",
+                org: "Nielsen Brasil",
+                when: "Jul/2015 — Mai/2018 · Curitiba/PR",
+                icon: ShieldCheck,
               },
               {
                 role: "Auxiliar Administrativo",
