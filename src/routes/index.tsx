@@ -127,6 +127,7 @@ type Project = {
   href: string;
   visual?: string;
   wireframe?: { name: string; blocks: string[] }[];
+  gallery?: { src: string; caption: string }[];
 };
 
 const projects: Project[] = [
