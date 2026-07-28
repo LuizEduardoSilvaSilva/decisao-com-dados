@@ -45,13 +45,13 @@ const realizado = [96, 90, 128, 138, 111, 141, 150, 0, 0, 0, 0, 0];
 const maxCotas = Math.max(...orcado, ...realizado);
 
 const aging = [
-  { faixa: "Até 30d", pct: 9.2, tone: "bg-emerald-500/70" },
-  { faixa: "30–59d", pct: 7.5, tone: "bg-emerald-500/60" },
-  { faixa: "60–89d", pct: 5.1, tone: "bg-amber-400/70" },
-  { faixa: "90–119d", pct: 6.8, tone: "bg-amber-500/70" },
-  { faixa: "120–149d", pct: 4.3, tone: "bg-orange-500/70" },
-  { faixa: "150–179d", pct: 5.6, tone: "bg-orange-600/70" },
-  { faixa: "180d+", pct: 61.5, tone: "bg-red-600/80" },
+  { faixa: "Até 30d", pct: 9.2, tone: "color-mix(in oklab, var(--accent) 70%, transparent)" },
+  { faixa: "30–59d", pct: 7.5, tone: "color-mix(in oklab, var(--accent) 50%, transparent)" },
+  { faixa: "60–89d", pct: 5.1, tone: "color-mix(in oklab, var(--accent) 70%, var(--destructive))" },
+  { faixa: "90–119d", pct: 6.8, tone: "color-mix(in oklab, var(--accent) 50%, var(--destructive))" },
+  { faixa: "120–149d", pct: 4.3, tone: "color-mix(in oklab, var(--accent) 25%, var(--destructive))" },
+  { faixa: "150–179d", pct: 5.6, tone: "color-mix(in oklab, var(--accent) 10%, var(--destructive))" },
+  { faixa: "180d+", pct: 61.5, tone: "var(--destructive)" },
 ];
 const maxAging = Math.max(...aging.map((a) => a.pct));
 
