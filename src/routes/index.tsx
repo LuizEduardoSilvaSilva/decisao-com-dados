@@ -410,7 +410,7 @@ function Portfolio() {
                         <span className="inline-flex items-center gap-2">
                           <Lock className="h-3 w-3" /> Mockup ilustrativo · dados 100% fictícios
                         </span>
-                        <span className="font-mono">Power BI · Layout original</span>
+                        <span className="font-mono">Recriação interativa</span>
                       </div>
                       <ReservaSerenaDashboard />
                     </figure>
