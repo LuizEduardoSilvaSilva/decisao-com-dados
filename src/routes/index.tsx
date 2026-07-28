@@ -17,7 +17,7 @@ import {
   Languages,
   BookOpen,
 } from "lucide-react";
-import capivariMockup from "@/assets/case-capivari-mockup.jpg";
+
 import heroBanner from "@/assets/hero-banner.png";
 import logoIcon from "@/assets/logo-icon.png";
 import painelCarteira01 from "@/assets/painel-carteira/01_carteira.png";
