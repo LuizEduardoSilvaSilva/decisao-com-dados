@@ -1,4 +1,6 @@
 {
   "schemaVersion": 1,
-  "template": "tanstack_start_ts_2026-06-17"
+  "template": "tanstack_start_ts_2026-06-17",
+  "display_name": "Portfólio BI — Luiz Eduardo Silva e Silva",
+  "description": "Portfólio profissional de Analista de Dados & BI. Cinco cases em Power BI, DAX, Power Query, SQL e automação, com repositórios documentados no GitHub. Design responsivo e limpo, com foco em transformar dados em decisão."
 }
