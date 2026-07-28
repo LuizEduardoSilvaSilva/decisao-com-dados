@@ -45,12 +45,12 @@ const realizado = [96, 90, 128, 138, 111, 141, 150, 0, 0, 0, 0, 0];
 const maxCotas = Math.max(...orcado, ...realizado);
 
 const aging = [
-  { faixa: "Até 30d", pct: 9.2, tone: "color-mix(in oklab, var(--accent) 70%, transparent)" },
-  { faixa: "30–59d", pct: 7.5, tone: "color-mix(in oklab, var(--accent) 50%, transparent)" },
-  { faixa: "60–89d", pct: 5.1, tone: "color-mix(in oklab, var(--accent) 70%, var(--destructive))" },
-  { faixa: "90–119d", pct: 6.8, tone: "color-mix(in oklab, var(--accent) 50%, var(--destructive))" },
-  { faixa: "120–149d", pct: 4.3, tone: "color-mix(in oklab, var(--accent) 25%, var(--destructive))" },
-  { faixa: "150–179d", pct: 5.6, tone: "color-mix(in oklab, var(--accent) 10%, var(--destructive))" },
+  { faixa: "Até 30d", pct: 9.2, tone: "color-mix(in oklab, var(--accent) 85%, transparent)" },
+  { faixa: "30–59d", pct: 7.5, tone: "color-mix(in oklab, var(--accent) 72%, transparent)" },
+  { faixa: "60–89d", pct: 5.1, tone: "color-mix(in oklab, var(--accent) 60%, transparent)" },
+  { faixa: "90–119d", pct: 6.8, tone: "color-mix(in oklab, var(--accent) 48%, transparent)" },
+  { faixa: "120–149d", pct: 4.3, tone: "color-mix(in oklab, var(--accent) 38%, transparent)" },
+  { faixa: "150–179d", pct: 5.6, tone: "color-mix(in oklab, var(--accent) 28%, transparent)" },
   { faixa: "180d+", pct: 61.5, tone: "var(--destructive)" },
 ];
 const maxAging = Math.max(...aging.map((a) => a.pct));
