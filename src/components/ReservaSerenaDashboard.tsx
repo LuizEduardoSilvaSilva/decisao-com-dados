@@ -205,8 +205,8 @@ export default function ReservaSerenaDashboard() {
                 </span>
                 <div className="h-3 overflow-hidden rounded-sm bg-surface">
                   <div
-                    className={`h-full ${a.tone} transition-[width] duration-700 ease-out`}
-                    style={{ width: grow((a.pct / maxAging) * 100) }}
+                    className="h-full transition-[width] duration-700 ease-out"
+                    style={{ width: grow((a.pct / maxAging) * 100), backgroundColor: a.tone }}
                   />
                 </div>
                 <span className="text-right font-mono text-[11px] text-foreground">
