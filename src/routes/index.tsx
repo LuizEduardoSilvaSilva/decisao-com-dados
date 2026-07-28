@@ -17,7 +17,7 @@ import {
   Languages,
   BookOpen,
 } from "lucide-react";
-import capivariMockup from "@/assets/case-capivari-mockup.jpg";
+
 import heroBanner from "@/assets/hero-banner.png";
 import logoIcon from "@/assets/logo-icon.png";
 import painelCarteira01 from "@/assets/painel-carteira/01_carteira.png";
@@ -175,26 +175,17 @@ const projects: Project[] = [
   },
   {
     n: "04",
-    title: "Gestão Financeira de Carteira",
+    title: "Relatório Executivo Recorrente de Gestão de Carteira — Multipropriedade",
     client: "NRM Gestão em Carteira",
     summary:
-      "Suite de 6 páginas em Power BI para acompanhamento de inadimplência, contratos vigentes, antecipações, vendas vs. cancelamentos e safras. Construído dentro da operação NRM — exibido aqui com dados 100% fictícios e layout anonimizado por sigilo contratual. No GitHub: README com contexto da carteira, modelagem dimensional, DAX comentado, queries de staging e wireframes de cada página.",
+      "Reconstrução de ponta a ponta de um relatório executivo recorrente para uma operação de gestão e recuperação de carteira no setor de multipropriedade, com vários empreendimentos e mais de uma linha de produto. Estruturei a camada de dados (ingestão e limpeza em Power Query, modelagem e padronização de indicadores entre empreendimentos e áreas), desenvolvi os módulos analíticos em Power BI com medidas DAX e passava a montar o deck executivo final. No processo ampliei a cobertura analítica — aging de inadimplência, taxa de contenção, VSO e eficiência de conversão passaram a ser visualizados de forma padronizada. Exibido com dados 100% fictícios e vocabulário anonimizado por sigilo contratual.",
     impact: [
-      { k: "6", v: "páginas analíticas" },
-      { k: "3", v: "frentes (atual, atraso, antecipação)" },
+      { k: "De 2 p/ 1", v: "equipe reduzida (assumido sozinho)" },
+      { k: "Semanal + mensal", v: "ciclo executivo recorrente" },
       { k: "Sigiloso", v: "dados anonimizados" },
     ],
-    stack: ["Power BI", "DAX", "Power Query", "Modelagem", "Slicers"],
+    stack: ["Power BI", "DAX", "Power Query", "Modelagem", "Consolidação"],
     href: "https://github.com/LuizEduardoSilvaSilva",
-    visual: capivariMockup,
-    wireframe: [
-      { name: "Inadimplência", blocks: ["KPI", "KPI", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela"] },
-      { name: "Current", blocks: ["KPI", "KPI", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela"] },
-      { name: "Antecipação", blocks: ["KPI", "KPI", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela", "Tabela"] },
-      { name: "Todos Contratos", blocks: ["KPI", "KPI", "Donut", "Tabela", "Tabela", "Filtros"] },
-      { name: "Inadimplentes +30d", blocks: ["Tabela", "Tabela", "Tabela", "Tabela", "Barras", "Barras Agrup."] },
-      { name: "Vendas x Cancel.", blocks: ["Colunas Agr.", "Colunas Agr.", "Colunas Agr."] },
-    ],
   },
   {
     n: "05",
