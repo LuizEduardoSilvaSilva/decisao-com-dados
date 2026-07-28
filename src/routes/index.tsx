@@ -404,6 +404,18 @@ function Portfolio() {
                     </span>
                   </div>
 
+                  {p.n === "04" && (
+                    <figure className="mt-8 overflow-hidden rounded-xl border border-hairline bg-background">
+                      <div className="flex items-center justify-between border-b border-hairline bg-surface px-4 py-2 text-[10px] uppercase tracking-wider text-muted-foreground">
+                        <span className="inline-flex items-center gap-2">
+                          <Lock className="h-3 w-3" /> Mockup ilustrativo · dados 100% fictícios
+                        </span>
+                        <span className="font-mono">Power BI · Layout original</span>
+                      </div>
+                      <ReservaSerenaDashboard />
+                    </figure>
+                  )}
+
                   {p.visual && (
                     <figure className="mt-8 overflow-hidden rounded-xl border border-hairline bg-background">
                       <div className="flex items-center justify-between border-b border-hairline bg-surface px-4 py-2 text-[10px] uppercase tracking-wider text-muted-foreground">
