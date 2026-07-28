@@ -23,6 +23,7 @@ import logoIcon from "@/assets/logo-icon.png";
 import painelCarteira01 from "@/assets/painel-carteira/01_carteira.png";
 import painelCarteira02 from "@/assets/painel-carteira/02_painel_cliente.png";
 import painelCarteira03 from "@/assets/painel-carteira/03_calendario.png";
+import ReservaSerenaDashboard from "@/components/ReservaSerenaDashboard";
 
 const SITE_URL = "https://luizeduardodev.lovable.app";
 const PAGE_TITLE = "Luiz Eduardo Silva e Silva — Analista de Dados & BI";
@@ -402,6 +403,18 @@ function Portfolio() {
                       <Github className="h-5 w-5" />
                     </span>
                   </div>
+
+                  {p.n === "04" && (
+                    <figure className="mt-8 overflow-hidden rounded-xl border border-hairline bg-background">
+                      <div className="flex items-center justify-between border-b border-hairline bg-surface px-4 py-2 text-[10px] uppercase tracking-wider text-muted-foreground">
+                        <span className="inline-flex items-center gap-2">
+                          <Lock className="h-3 w-3" /> Mockup ilustrativo · dados 100% fictícios
+                        </span>
+                        <span className="font-mono">Power BI · Layout original</span>
+                      </div>
+                      <ReservaSerenaDashboard />
+                    </figure>
+                  )}
 
                   {p.visual && (
                     <figure className="mt-8 overflow-hidden rounded-xl border border-hairline bg-background">
