@@ -23,6 +23,7 @@ import logoIcon from "@/assets/logo-icon.png";
 import painelCarteira01 from "@/assets/painel-carteira/01_carteira.png";
 import painelCarteira02 from "@/assets/painel-carteira/02_painel_cliente.png";
 import painelCarteira03 from "@/assets/painel-carteira/03_calendario.png";
+import ReservaSerenaDashboard from "@/components/ReservaSerenaDashboard";
 
 const SITE_URL = "https://luizeduardodev.lovable.app";
 const PAGE_TITLE = "Luiz Eduardo Silva e Silva — Analista de Dados & BI";
