@@ -389,10 +389,10 @@ function Portfolio() {
                       {isConfidential ? (
                         <>
                           <p className="mt-3 max-w-2xl text-xs italic text-muted-foreground">
-                            Trabalho sob sigilo contratual. Sem repositório público — a operação, os dados e os clientes da NRM são confidenciais. O mockup abaixo é uma recriação com dados 100% fictícios para demonstrar estrutura e método.
+                            {CONFIDENTIAL_NOTES[p.n]?.nota ?? "Trabalho interno — sem repositório público."}
                           </p>
                           <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-hairline bg-surface px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                            <Lock className="h-3 w-3" /> Projeto confidencial · sem repositório público
+                            <Lock className="h-3 w-3" /> {CONFIDENTIAL_NOTES[p.n]?.selo ?? "Sem repositório público"}
                           </div>
                         </>
                       ) : (
