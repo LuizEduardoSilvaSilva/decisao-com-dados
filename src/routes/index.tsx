@@ -134,17 +134,17 @@ type Project = {
 const projects: Project[] = [
   {
     n: "01",
-    title: "Relatório Executivo Semanal — 83 slides",
+    title: "Relatório Executivo de Gestão de Carteira — Multipropriedade (NRM)",
     client: "NRM Gestão em Carteira",
     summary:
-      "Consolidação de KPIs de vendas, captação, recebíveis, inadimplência e campanhas de cobrança para o CEO e sócios de 4 empresas simultaneamente. No GitHub: README com contexto de negócio, arquitetura de dados, queries SQL, lógica DAX e documentação de governança.",
+      "Reconstrução de ponta a ponta de um relatório executivo recorrente para uma operação de gestão e recuperação de carteira (BPO) no setor de multipropriedade/timeshare, consolidando 4 empreendimentos e 2 linhas de produto num deck executivo de 83 slides. Estruturei a camada de dados (ingestão e limpeza em Power Query, modelagem e padronização de indicadores entre empreendimentos e áreas), desenvolvi os módulos analíticos em Power BI com medidas DAX e montava o deck executivo final em cadência semanal com fechamento mensal. Assumi sozinho um relatório antes produzido por 2 analistas e ainda ampliei a cobertura analítica — aging de inadimplência, taxa de contenção, VSO e eficiência de conversão passaram a ser visualizados de forma padronizada. Exibido com dados 100% fictícios e vocabulário anonimizado por sigilo contratual.",
     impact: [
-      { k: "4", v: "empresas atendidas" },
-      { k: "83", v: "slides automatizados" },
-      { k: "Semanal", v: "cadência executiva" },
+      { k: "83", v: "slides executivos" },
+      { k: "4", v: "empreendimentos consolidados" },
+      { k: "De 2 p/ 1", v: "assumido sozinho" },
     ],
-    stack: ["Power BI", "DAX", "Power Query", "SQL", "VBA"],
-    href: "https://github.com/LuizEduardoSilvaSilva",
+    stack: ["Power BI", "DAX", "Power Query", "Modelagem", "SQL"],
+    href: "",
   },
   {
     n: "02",
@@ -176,20 +176,6 @@ const projects: Project[] = [
   },
   {
     n: "04",
-    title: "Relatório Executivo Recorrente de Gestão de Carteira — Multipropriedade",
-    client: "NRM Gestão em Carteira",
-    summary:
-      "Reconstrução de ponta a ponta de um relatório executivo recorrente para uma operação de gestão e recuperação de carteira no setor de multipropriedade, com vários empreendimentos e mais de uma linha de produto. Estruturei a camada de dados (ingestão e limpeza em Power Query, modelagem e padronização de indicadores entre empreendimentos e áreas), desenvolvi os módulos analíticos em Power BI com medidas DAX e passava a montar o deck executivo final. No processo ampliei a cobertura analítica — aging de inadimplência, taxa de contenção, VSO e eficiência de conversão passaram a ser visualizados de forma padronizada. Exibido com dados 100% fictícios e vocabulário anonimizado por sigilo contratual.",
-    impact: [
-      { k: "De 2 p/ 1", v: "equipe reduzida (assumido sozinho)" },
-      { k: "Semanal + mensal", v: "ciclo executivo recorrente" },
-      { k: "Sigiloso", v: "dados anonimizados" },
-    ],
-    stack: ["Power BI", "DAX", "Power Query", "Modelagem", "Consolidação"],
-    href: "https://github.com/LuizEduardoSilvaSilva",
-  },
-  {
-    n: "05",
     title: "Painel de Gestão da Carteira — Power BI",
     client: "Projeto demonstrativo (dados fictícios)",
     summary:
@@ -281,7 +267,7 @@ function Portfolio() {
           <div className="mt-16 grid grid-cols-2 gap-y-6 border-t border-hairline pt-8 sm:grid-cols-4">
             {[
               { k: "10+", v: "anos de experiência profissional" },
-              { k: "4", v: "empresas atendidas simultaneamente" },
+              { k: "4", v: "empreendimentos atendidos simultaneamente" },
               { k: "83", v: "slides executivos automatizados" },
               { k: "6", v: "dashboards em Power BI" },
             ].map((s) => (
@@ -346,7 +332,7 @@ function Portfolio() {
                 <span className="section-eyebrow-dot" /> Projetos selecionados
               </div>
               <h2 className="text-4xl font-medium leading-tight sm:text-5xl">
-                Cinco cases. Contextos distintos. <span className="italic text-accent">Um padrão de impacto.</span>
+                Quatro cases. Contextos distintos. <span className="italic text-accent">Um padrão de impacto.</span>
               </h2>
             </div>
             <p className="text-sm text-muted-foreground md:max-w-xs">
@@ -370,14 +356,10 @@ function Portfolio() {
           </div>
 
           <ol className="mt-14 space-y-px overflow-hidden rounded-2xl border border-hairline bg-hairline">
-            {projects.map((p) => (
-              <li key={p.n} className="group bg-surface-elevated">
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="block p-8 transition hover:bg-background sm:p-10"
-                >
+            {projects.map((p) => {
+              const isConfidential = !p.href;
+              const innerContent = (
+                <>
                   <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-6">
                     <div className="min-w-0">
                       <div className="flex items-center gap-3 text-xs">
@@ -389,9 +371,20 @@ function Portfolio() {
                         {p.title}
                       </h3>
                       <p className="mt-3 max-w-2xl text-muted-foreground">{p.summary}</p>
-                      <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent">
-                        <BookOpen className="h-3 w-3" /> Repositório documentado
-                      </div>
+                      {isConfidential ? (
+                        <>
+                          <p className="mt-3 max-w-2xl text-xs italic text-muted-foreground">
+                            Trabalho sob sigilo contratual. Sem repositório público — a operação, os dados e os clientes da NRM são confidenciais. O mockup abaixo é uma recriação com dados 100% fictícios para demonstrar estrutura e método.
+                          </p>
+                          <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-hairline bg-surface px-2.5 py-1 text-xs font-medium text-muted-foreground">
+                            <Lock className="h-3 w-3" /> Projeto confidencial · sem repositório público
+                          </div>
+                        </>
+                      ) : (
+                        <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent">
+                          <BookOpen className="h-3 w-3" /> Repositório documentado
+                        </div>
+                      )}
 
                       <div className="mt-6 flex flex-wrap gap-2">
                         {p.stack.map((s) => (
@@ -399,12 +392,14 @@ function Portfolio() {
                         ))}
                       </div>
                     </div>
-                    <span className="shrink-0 grid h-12 w-12 place-items-center rounded-full border border-hairline text-foreground transition group-hover:border-accent group-hover:bg-accent group-hover:text-accent-foreground">
-                      <Github className="h-5 w-5" />
-                    </span>
+                    {!isConfidential && (
+                      <span className="shrink-0 grid h-12 w-12 place-items-center rounded-full border border-hairline text-foreground transition group-hover:border-accent group-hover:bg-accent group-hover:text-accent-foreground">
+                        <Github className="h-5 w-5" />
+                      </span>
+                    )}
                   </div>
 
-                  {p.n === "04" && (
+                  {p.n === "01" && (
                     <figure className="mt-8 overflow-hidden rounded-xl border border-hairline bg-background">
                       <div className="flex items-center justify-between border-b border-hairline bg-surface px-4 py-2 text-[10px] uppercase tracking-wider text-muted-foreground">
                         <span className="inline-flex items-center gap-2">
@@ -508,9 +503,25 @@ function Portfolio() {
                       </div>
                     ))}
                   </dl>
-                </a>
-              </li>
-            ))}
+                </>
+              );
+              return (
+                <li key={p.n} className="group bg-surface-elevated">
+                  {isConfidential ? (
+                    <div className="block p-8 sm:p-10">{innerContent}</div>
+                  ) : (
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block p-8 transition hover:bg-background sm:p-10"
+                    >
+                      {innerContent}
+                    </a>
+                  )}
+                </li>
+              );
+            })}
           </ol>
         </div>
       </section>
