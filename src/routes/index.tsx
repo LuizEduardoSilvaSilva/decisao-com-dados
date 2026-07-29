@@ -356,14 +356,10 @@ function Portfolio() {
           </div>
 
           <ol className="mt-14 space-y-px overflow-hidden rounded-2xl border border-hairline bg-hairline">
-            {projects.map((p) => (
-              <li key={p.n} className="group bg-surface-elevated">
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="block p-8 transition hover:bg-background sm:p-10"
-                >
+            {projects.map((p) => {
+              const isConfidential = !p.href;
+              const innerContent = (
+                <>
                   <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-6">
                     <div className="min-w-0">
                       <div className="flex items-center gap-3 text-xs">
@@ -375,9 +371,20 @@ function Portfolio() {
                         {p.title}
                       </h3>
                       <p className="mt-3 max-w-2xl text-muted-foreground">{p.summary}</p>
-                      <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent">
-                        <BookOpen className="h-3 w-3" /> Repositório documentado
-                      </div>
+                      {isConfidential ? (
+                        <>
+                          <p className="mt-3 max-w-2xl text-xs italic text-muted-foreground">
+                            Trabalho sob sigilo contratual. Sem repositório público — a operação, os dados e os clientes da NRM são confidenciais. O mockup abaixo é uma recriação com dados 100% fictícios para demonstrar estrutura e método.
+                          </p>
+                          <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-hairline bg-surface px-2.5 py-1 text-xs font-medium text-muted-foreground">
+                            <Lock className="h-3 w-3" /> Projeto confidencial · sem repositório público
+                          </div>
+                        </>
+                      ) : (
+                        <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent">
+                          <BookOpen className="h-3 w-3" /> Repositório documentado
+                        </div>
+                      )}
 
                       <div className="mt-6 flex flex-wrap gap-2">
                         {p.stack.map((s) => (
@@ -385,12 +392,14 @@ function Portfolio() {
                         ))}
                       </div>
                     </div>
-                    <span className="shrink-0 grid h-12 w-12 place-items-center rounded-full border border-hairline text-foreground transition group-hover:border-accent group-hover:bg-accent group-hover:text-accent-foreground">
-                      <Github className="h-5 w-5" />
-                    </span>
+                    {!isConfidential && (
+                      <span className="shrink-0 grid h-12 w-12 place-items-center rounded-full border border-hairline text-foreground transition group-hover:border-accent group-hover:bg-accent group-hover:text-accent-foreground">
+                        <Github className="h-5 w-5" />
+                      </span>
+                    )}
                   </div>
 
-                  {p.n === "04" && (
+                  {p.n === "01" && (
                     <figure className="mt-8 overflow-hidden rounded-xl border border-hairline bg-background">
                       <div className="flex items-center justify-between border-b border-hairline bg-surface px-4 py-2 text-[10px] uppercase tracking-wider text-muted-foreground">
                         <span className="inline-flex items-center gap-2">
@@ -494,9 +503,25 @@ function Portfolio() {
                       </div>
                     ))}
                   </dl>
-                </a>
-              </li>
-            ))}
+                </>
+              );
+              return (
+                <li key={p.n} className="group bg-surface-elevated">
+                  {isConfidential ? (
+                    <div className="block p-8 sm:p-10">{innerContent}</div>
+                  ) : (
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block p-8 transition hover:bg-background sm:p-10"
+                    >
+                      {innerContent}
+                    </a>
+                  )}
+                </li>
+              );
+            })}
           </ol>
         </div>
       </section>
