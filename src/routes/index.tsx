@@ -267,7 +267,7 @@ function Portfolio() {
           <div className="mt-16 grid grid-cols-2 gap-y-6 border-t border-hairline pt-8 sm:grid-cols-4">
             {[
               { k: "10+", v: "anos de experiência profissional" },
-              { k: "4", v: "empresas atendidas simultaneamente" },
+              { k: "4", v: "empreendimentos atendidos simultaneamente" },
               { k: "83", v: "slides executivos automatizados" },
               { k: "6", v: "dashboards em Power BI" },
             ].map((s) => (
