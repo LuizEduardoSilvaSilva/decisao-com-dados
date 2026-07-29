@@ -351,8 +351,9 @@ function Portfolio() {
               </h2>
             </div>
             <p className="text-sm text-muted-foreground md:max-w-xs">
-              Cada projeto está documentado e disponível no GitHub para inspeção
-              de modelagem, DAX, queries e governança.
+              Cada projeto é documentado conforme o sigilo da operação — de
+              repositório público a recriações com dados fictícios e registros
+              de trabalho interno.
             </p>
           </div>
 
@@ -362,9 +363,9 @@ function Portfolio() {
                 <BookOpen className="h-5 w-5" />
               </span>
               <div>
-                <h3 className="font-display text-sm font-medium text-foreground">Documentação pública, dados privados</h3>
+                <h3 className="font-display text-sm font-medium text-foreground">Transparência conforme o sigilo de cada projeto</h3>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Cada repositório contém <strong className="text-foreground">README com contexto de negócio, arquitetura de dados, DAX comentado, queries e wireframes</strong> — nunca dados reais ou informações sigilosas. É meu método de demonstrar o trabalho sem violar sigilo contratual.
+                  Mostro o trabalho da forma mais aberta que cada contexto permite: <strong className="text-foreground">repositório público</strong> quando o projeto é demonstrativo (com .pbix, DAX e queries documentados), <strong className="text-foreground">recriação com dados 100% fictícios</strong> quando a operação é confidencial, e <strong className="text-foreground">descrição honesta</strong> quando foi trabalho interno não publicado. Nunca dados reais ou informações sigilosas — é assim que demonstro método sem violar sigilo.
                 </p>
               </div>
             </div>
