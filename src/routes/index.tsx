@@ -134,17 +134,17 @@ type Project = {
 const projects: Project[] = [
   {
     n: "01",
-    title: "Relatório Executivo Semanal — 83 slides",
+    title: "Relatório Executivo de Gestão de Carteira — Multipropriedade (NRM)",
     client: "NRM Gestão em Carteira",
     summary:
-      "Consolidação de KPIs de vendas, captação, recebíveis, inadimplência e campanhas de cobrança para o CEO e sócios de 4 empresas simultaneamente. No GitHub: README com contexto de negócio, arquitetura de dados, queries SQL, lógica DAX e documentação de governança.",
+      "Reconstrução de ponta a ponta de um relatório executivo recorrente para uma operação de gestão e recuperação de carteira (BPO) no setor de multipropriedade/timeshare, consolidando 4 empreendimentos e 2 linhas de produto num deck executivo de 83 slides. Estruturei a camada de dados (ingestão e limpeza em Power Query, modelagem e padronização de indicadores entre empreendimentos e áreas), desenvolvi os módulos analíticos em Power BI com medidas DAX e montava o deck executivo final em cadência semanal com fechamento mensal. Assumi sozinho um relatório antes produzido por 2 analistas e ainda ampliei a cobertura analítica — aging de inadimplência, taxa de contenção, VSO e eficiência de conversão passaram a ser visualizados de forma padronizada. Exibido com dados 100% fictícios e vocabulário anonimizado por sigilo contratual.",
     impact: [
-      { k: "4", v: "empresas atendidas" },
-      { k: "83", v: "slides automatizados" },
-      { k: "Semanal", v: "cadência executiva" },
+      { k: "83", v: "slides executivos" },
+      { k: "4", v: "empreendimentos consolidados" },
+      { k: "De 2 p/ 1", v: "assumido sozinho" },
     ],
-    stack: ["Power BI", "DAX", "Power Query", "SQL", "VBA"],
-    href: "https://github.com/LuizEduardoSilvaSilva",
+    stack: ["Power BI", "DAX", "Power Query", "Modelagem", "SQL"],
+    href: "",
   },
   {
     n: "02",
@@ -176,20 +176,6 @@ const projects: Project[] = [
   },
   {
     n: "04",
-    title: "Relatório Executivo Recorrente de Gestão de Carteira — Multipropriedade",
-    client: "NRM Gestão em Carteira",
-    summary:
-      "Reconstrução de ponta a ponta de um relatório executivo recorrente para uma operação de gestão e recuperação de carteira no setor de multipropriedade, com vários empreendimentos e mais de uma linha de produto. Estruturei a camada de dados (ingestão e limpeza em Power Query, modelagem e padronização de indicadores entre empreendimentos e áreas), desenvolvi os módulos analíticos em Power BI com medidas DAX e passava a montar o deck executivo final. No processo ampliei a cobertura analítica — aging de inadimplência, taxa de contenção, VSO e eficiência de conversão passaram a ser visualizados de forma padronizada. Exibido com dados 100% fictícios e vocabulário anonimizado por sigilo contratual.",
-    impact: [
-      { k: "De 2 p/ 1", v: "equipe reduzida (assumido sozinho)" },
-      { k: "Semanal + mensal", v: "ciclo executivo recorrente" },
-      { k: "Sigiloso", v: "dados anonimizados" },
-    ],
-    stack: ["Power BI", "DAX", "Power Query", "Modelagem", "Consolidação"],
-    href: "https://github.com/LuizEduardoSilvaSilva",
-  },
-  {
-    n: "05",
     title: "Painel de Gestão da Carteira — Power BI",
     client: "Projeto demonstrativo (dados fictícios)",
     summary:
