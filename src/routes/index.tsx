@@ -196,6 +196,21 @@ const projects: Project[] = [
 ];
 
 
+const CONFIDENTIAL_NOTES: Record<string, { nota: string; selo: string }> = {
+  "01": {
+    nota: "Trabalho sob sigilo contratual. Sem repositório público — a operação, os dados e os clientes da NRM são confidenciais. O mockup abaixo é uma recriação com dados 100% fictícios para demonstrar estrutura e método.",
+    selo: "Projeto confidencial · sem repositório público",
+  },
+  "02": {
+    nota: "Trabalho interno — sem repositório público. Artefatos e indicadores descritos a partir da atuação na função.",
+    selo: "Projeto interno · sem repositório público",
+  },
+  "03": {
+    nota: "Trabalho interno da operação própria — sem repositório público. Dashboards e automações construídos para a gestão do negócio.",
+    selo: "Projeto interno · sem repositório público",
+  },
+};
+
 function Portfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground">
