@@ -151,28 +151,28 @@ const projects: Project[] = [
     title: "Controle de Qualidade em Campo — Nielsen (auditoria Coca-Cola)",
     client: "Nielsen Brasil",
     summary:
-      "Como Field Quality Specialist na auditoria de campo (PR/SC), criei planilhas e macros de apoio para monitorar KPIs de qualidade da operação — um envolvimento informal com dados que consolidou meu interesse pela área e me levou ao BI. No GitHub: README com escopo da operação, macros documentadas e estrutura de KPIs, com prints anonimizados.",
+      "Como Field Quality Specialist na auditoria de campo (PR/SC), criei planilhas e macros de apoio para monitorar KPIs de qualidade da operação. Foi um envolvimento informal com dados que consolidou meu interesse pela área e me levou ao BI — estruturando indicadores, padronizando controles e documentando o processo de auditoria em escala regional.",
     impact: [
       { k: "PR + SC", v: "cobertura regional" },
       { k: "Macros", v: "automação de controle" },
       { k: "Field QA", v: "papel de origem em dados" },
     ],
     stack: ["Excel Avançado", "VBA", "KPIs", "Governança"],
-    href: "https://github.com/LuizEduardoSilvaSilva",
+    href: "",
   },
   {
     n: "03",
     title: "Painel Financeiro & Operacional — Conserta Smart",
     client: "Conserta Smart — Quatro Barras",
     summary:
-      "Dashboards de KPIs financeiros e operacionais com automações em Excel/VBA para gestão proprietária, focando rentabilidade e retrabalho. No GitHub: README com objetivos do negócio, macros VBA comentadas, estrutura de relatórios e prints do layout.",
+      "À frente da operação como gestor-proprietário, construí dashboards de KPIs financeiros e operacionais e automações em Excel/VBA para acompanhar o negócio de perto — do fluxo de caixa ao controle de rotinas. Um exercício completo de transformar a operação do dia a dia em indicadores de gestão.",
     impact: [
-      { k: "+20%", v: "rentabilidade" },
-      { k: "−20%", v: "retrabalho" },
-      { k: "1 ano", v: "ciclo completo" },
+      { k: "Excel + VBA", v: "automação de rotinas" },
+      { k: "KPIs", v: "financeiros e operacionais" },
+      { k: "Gestão proprietária", v: "visão dona do negócio" },
     ],
     stack: ["Excel", "VBA", "Macros", "Relatórios"],
-    href: "https://github.com/LuizEduardoSilvaSilva",
+    href: "",
   },
   {
     n: "04",
