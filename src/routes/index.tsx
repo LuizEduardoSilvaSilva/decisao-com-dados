@@ -72,7 +72,7 @@ export const Route = createFileRoute("/")({
             addressRegion: "PR",
             addressCountry: "BR",
           },
-          email: "mailto:luiz.e.silva.silva@gmail.com",
+          email: "mailto:decisaocomdados.bi@gmail.com",
           telephone: "+55-41-98902-3978",
           sameAs: [
             "https://www.linkedin.com/in/luizsilvaesilva/",
@@ -82,7 +82,7 @@ export const Route = createFileRoute("/")({
             {
               "@type": "ContactPoint",
               contactType: "professional",
-              email: "luiz.e.silva.silva@gmail.com",
+              email: "decisaocomdados.bi@gmail.com",
               telephone: "+55-41-98902-3978",
               areaServed: "BR",
               availableLanguage: ["Portuguese", "English"],
@@ -527,10 +527,10 @@ function PortfolioContent() {
 
               <div className="mt-10 flex flex-wrap gap-3">
                 <a
-                  href="mailto:luiz.e.silva.silva@gmail.com"
+                  href="mailto:decisaocomdados.bi@gmail.com"
                   className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition hover:opacity-90"
                 >
-                  <Mail className="h-4 w-4" /> luiz.e.silva.silva@gmail.com
+                  <Mail className="h-4 w-4" /> decisaocomdados.bi@gmail.com
                 </a>
                 <a
                   href={`https://wa.me/5541989023978?text=${encodeURIComponent(t.contact.whatsappText)}`}
