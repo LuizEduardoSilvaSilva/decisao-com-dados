@@ -209,6 +209,7 @@ export const dict = {
       headingB: "Vamos conversar.",
       body: "Resposta em até 24h úteis. Atendo projetos pontuais, squads multidisciplinares e operações executivas recorrentes.",
       location: "Curitiba — PR",
+      whatsappText: "Olá, Luiz! Vi seu portfólio e gostaria de saber mais sobre seus serviços.",
     },
     footer: {
       rights: "Todos os direitos reservados.",
@@ -450,6 +451,7 @@ export const dict = {
       headingB: "Let's talk.",
       body: "Reply within 24 business hours. I take on one-off projects, cross-functional squads and recurring executive operations.",
       location: "Curitiba, Brazil",
+      whatsappText: "Hi Luiz, I saw your portfolio and would like to learn more about your BI services.",
     },
     footer: {
       rights: "All rights reserved.",
