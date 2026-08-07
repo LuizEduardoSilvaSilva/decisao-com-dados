@@ -24,6 +24,8 @@ import painelCarteira01 from "@/assets/painel-carteira/01_carteira.png";
 import painelCarteira02 from "@/assets/painel-carteira/02_painel_cliente.png";
 import painelCarteira03 from "@/assets/painel-carteira/03_calendario.png";
 import ReservaSerenaDashboard from "@/components/ReservaSerenaDashboard";
+import LanguageToggle from "@/components/LanguageToggle";
+import { LanguageProvider, useLanguage } from "@/lib/i18n";
 
 const SITE_URL = "https://luizeduardodev.lovable.app";
 const PAGE_TITLE = "Luiz Eduardo Silva e Silva — Analista de Dados & BI";
@@ -85,133 +87,39 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const skills = [
-  {
-    icon: BarChart3,
-    title: "Visualização & BI",
-    items: ["Power BI (Avançado)", "Dashboards Executivos", "DAX", "Excel Avançado", "Google Sheets"],
-  },
-  {
-    icon: Database,
-    title: "Dados & Modelagem",
-    items: ["SQL", "Power Query", "ETL", "Modelagem Dimensional", "KPIs & Métricas"],
-  },
-  {
-    icon: ShieldCheck,
-    title: "Governança & Qualidade",
-    items: ["Qualidade de Dados", "Documentação de Processos", "Regras de Negócio", "Boas Práticas"],
-  },
-  {
-    icon: Code2,
-    title: "Automação & Linguagens",
-    items: ["VBA / Macros", "Python (Básico)", "DAX Intermediário", "Power Automate"],
-  },
-  {
-    icon: TableProperties,
-    title: "Ferramentas",
-    items: ["Microsoft 365", "CVCRM", "ASC", "TimeShare Explorer"],
-  },
-  {
-    icon: Languages,
-    title: "Idiomas",
-    items: ["Inglês (Intermediário)", "Espanhol (Básico)", "Francês (Básico)"],
-  },
-];
+const skillIcons = [BarChart3, Database, ShieldCheck, Code2, TableProperties, Languages];
+const experienceIcons = [LineChart, Workflow, ShieldCheck, TableProperties];
 
-type Project = {
-  n: string;
-  title: string;
-  client: string;
-  summary: string;
-  impact: { k: string; v: string }[];
-  stack: string[];
+type ProjectMeta = {
+  n: "01" | "02" | "03" | "04";
   href: string;
   visual?: string;
   wireframe?: { name: string; blocks: string[] }[];
-  gallery?: { src: string; caption: string }[];
+  gallerySrc?: string[];
 };
 
-const projects: Project[] = [
-  {
-    n: "01",
-    title: "Relatório Executivo de Gestão de Carteira — Multipropriedade (NRM)",
-    client: "NRM Gestão em Carteira",
-    summary:
-      "Reconstrução de ponta a ponta de um relatório executivo recorrente para uma operação de gestão e recuperação de carteira (BPO) no setor de multipropriedade/timeshare, consolidando 4 empreendimentos e 2 linhas de produto num deck executivo de 83 slides. Estruturei a camada de dados (ingestão e limpeza em Power Query, modelagem e padronização de indicadores entre empreendimentos e áreas), desenvolvi os módulos analíticos em Power BI com medidas DAX e montava o deck executivo final em cadência semanal com fechamento mensal. Assumi sozinho um relatório antes produzido por 2 analistas e ainda ampliei a cobertura analítica — aging de inadimplência, taxa de contenção, VSO e eficiência de conversão passaram a ser visualizados de forma padronizada. Exibido com dados 100% fictícios e vocabulário anonimizado por sigilo contratual.",
-    impact: [
-      { k: "83", v: "slides executivos" },
-      { k: "4", v: "empreendimentos consolidados" },
-      { k: "De 2 p/ 1", v: "assumido sozinho" },
-    ],
-    stack: ["Power BI", "DAX", "Power Query", "Modelagem", "SQL"],
-    href: "",
-  },
-  {
-    n: "02",
-    title: "Controle de Qualidade em Campo — Nielsen (auditoria Coca-Cola)",
-    client: "Nielsen Brasil",
-    summary:
-      "Como Field Quality Specialist na auditoria de campo (PR/SC), criei planilhas e macros de apoio para monitorar KPIs de qualidade da operação. Foi um envolvimento informal com dados que consolidou meu interesse pela área e me levou ao BI — estruturando indicadores, padronizando controles e documentando o processo de auditoria em escala regional.",
-    impact: [
-      { k: "PR + SC", v: "cobertura regional" },
-      { k: "Macros", v: "automação de controle" },
-      { k: "Field QA", v: "papel de origem em dados" },
-    ],
-    stack: ["Excel Avançado", "VBA", "KPIs", "Governança"],
-    href: "",
-  },
-  {
-    n: "03",
-    title: "Painel Financeiro & Operacional — Conserta Smart",
-    client: "Conserta Smart — Quatro Barras",
-    summary:
-      "À frente da operação como gestor-proprietário, construí dashboards de KPIs financeiros e operacionais e automações em Excel/VBA para acompanhar o negócio de perto — do fluxo de caixa ao controle de rotinas. Um exercício completo de transformar a operação do dia a dia em indicadores de gestão.",
-    impact: [
-      { k: "Excel + VBA", v: "automação de rotinas" },
-      { k: "KPIs", v: "financeiros e operacionais" },
-      { k: "Gestão proprietária", v: "visão dona do negócio" },
-    ],
-    stack: ["Excel", "VBA", "Macros", "Relatórios"],
-    href: "",
-  },
+const projectsMeta: ProjectMeta[] = [
+  { n: "01", href: "" },
+  { n: "02", href: "" },
+  { n: "03", href: "" },
   {
     n: "04",
-    title: "Painel de Gestão da Carteira — Power BI",
-    client: "Projeto demonstrativo (dados fictícios)",
-    summary:
-      "Solução de BI que transforma um book operacional de clientes (planilha alimentada manualmente) em 3 dashboards conectados no Power BI, sobre um modelo em estrela construído por Power Query — sem alterar a forma de alimentação da base. Páginas: Carteira, Painel do Cliente (drill-through + busca com navegação) e Calendário Operacional (eventos de corte, emissão e vencimento). No GitHub: repositório público completo com .pbix, base fictícia, esquema estrela, tema, backgrounds, DAX e queries M documentados.",
-    impact: [
-      { k: "3", v: "dashboards conectados" },
-      { k: "100", v: "clientes fictícios" },
-      { k: "Público", v: "repositório aberto" },
-    ],
-    stack: ["Power BI", "DAX", "Power Query (M)", "Modelo Estrela", "Drill-through"],
     href: "https://github.com/LuizEduardoSilvaSilva/Painel-de-Gest-o-de-Carteira---PowerBI",
-    gallery: [
-      { src: painelCarteira01, caption: "Carteira — visão geral de clientes e status" },
-      { src: painelCarteira02, caption: "Painel do Cliente — drill-through com busca e navegação" },
-      { src: painelCarteira03, caption: "Calendário Operacional — corte, emissão e vencimento" },
-    ],
+    gallerySrc: [painelCarteira01, painelCarteira02, painelCarteira03],
   },
 ];
 
-
-const CONFIDENTIAL_NOTES: Record<string, { nota: string; selo: string }> = {
-  "01": {
-    nota: "Trabalho sob sigilo contratual. Sem repositório público — a operação, os dados e os clientes da NRM são confidenciais. O mockup abaixo é uma recriação com dados 100% fictícios para demonstrar estrutura e método.",
-    selo: "Projeto confidencial · sem repositório público",
-  },
-  "02": {
-    nota: "Trabalho interno — sem repositório público. Artefatos e indicadores descritos a partir da atuação na função.",
-    selo: "Projeto interno · sem repositório público",
-  },
-  "03": {
-    nota: "Trabalho interno da operação própria — sem repositório público. Dashboards e automações construídos para a gestão do negócio.",
-    selo: "Projeto interno · sem repositório público",
-  },
-};
-
 function Portfolio() {
+  return (
+    <LanguageProvider>
+      <PortfolioContent />
+    </LanguageProvider>
+  );
+}
+
+function PortfolioContent() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
@@ -226,17 +134,20 @@ function Portfolio() {
             <span className="hidden sm:inline">Luiz Eduardo Silva e Silva</span>
           </a>
           <ul className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-            <li><a href="#skills" className="transition hover:text-foreground">Habilidades</a></li>
-            <li><a href="#cases" className="transition hover:text-foreground">Cases</a></li>
-            <li><a href="#experiencia" className="transition hover:text-foreground">Experiência</a></li>
-            <li><a href="#contato" className="transition hover:text-foreground">Contato</a></li>
+            <li><a href="#skills" className="transition hover:text-foreground">{t.nav.skills}</a></li>
+            <li><a href="#cases" className="transition hover:text-foreground">{t.nav.cases}</a></li>
+            <li><a href="#experiencia" className="transition hover:text-foreground">{t.nav.experience}</a></li>
+            <li><a href="#contato" className="transition hover:text-foreground">{t.nav.contact}</a></li>
           </ul>
-          <a
-            href="#contato"
-            className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-medium text-primary-foreground transition hover:opacity-90"
-          >
-            Falar comigo <ArrowUpRight className="h-3.5 w-3.5" />
-          </a>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <LanguageToggle />
+            <a
+              href="#contato"
+              className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-xs font-medium text-primary-foreground transition hover:opacity-90"
+            >
+              {t.nav.cta} <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
         </nav>
       </header>
 
@@ -245,22 +156,20 @@ function Portfolio() {
         <div className="absolute inset-0 grid-bg opacity-70" aria-hidden />
         <div className="relative mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
           <h1 className="sr-only">
-            Luiz Eduardo Silva e Silva — Analista de Dados & BI
+            Luiz Eduardo Silva e Silva — {t.hero.role}
           </h1>
           <img
             src={heroBanner}
-            alt="Luiz Eduardo Silva e Silva — Analista de Dados & BI"
+            alt={`Luiz Eduardo Silva e Silva — ${t.hero.role}`}
             className="w-full rounded-xl border border-hairline shadow-elevated"
             width={1372}
             height={784}
           />
 
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Sou <strong className="text-foreground">Luiz Eduardo Silva e Silva</strong>, Analista
-            de Dados & BI. Ao longo de mais de uma década em ambientes orientados a negócio,
-            desenvolvi foco em transformar dados em decisão — construindo dashboards, KPIs e
-            processos de governança que reduzem ruído e aceleram decisões para CEOs, sócios e
-            times multidisciplinares.
+            {t.hero.paragraph.before}
+            <strong className="text-foreground">{t.hero.paragraph.name}</strong>
+            {t.hero.paragraph.after}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -268,24 +177,19 @@ function Portfolio() {
               href="#cases"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-elevated transition hover:opacity-90"
             >
-              Ver cases de projetos <ArrowUpRight className="h-4 w-4" />
+              {t.hero.ctaCases} <ArrowUpRight className="h-4 w-4" />
             </a>
             <a
               href="#contato"
               className="inline-flex items-center gap-2 rounded-full border border-hairline bg-surface-elevated px-6 py-3 text-sm font-medium text-foreground transition hover:border-foreground/30"
             >
-              <Mail className="h-4 w-4" /> Contratar para um projeto
+              <Mail className="h-4 w-4" /> {t.hero.ctaHire}
             </a>
           </div>
 
           {/* meta strip */}
           <div className="mt-16 grid grid-cols-2 gap-y-6 border-t border-hairline pt-8 sm:grid-cols-4">
-            {[
-              { k: "10+", v: "anos de experiência profissional" },
-              { k: "4", v: "empreendimentos atendidos simultaneamente" },
-              { k: "83", v: "slides executivos automatizados" },
-              { k: "6", v: "dashboards em Power BI" },
-            ].map((s) => (
+            {t.hero.meta.map((s) => (
               <div key={s.v}>
                 <div className="font-display text-3xl font-medium tracking-tight text-foreground">{s.k}</div>
                 <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{s.v}</div>
@@ -294,8 +198,8 @@ function Portfolio() {
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-            <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> Curitiba — PR · Híbrido / Remoto</span>
-            <span className="inline-flex items-center gap-1.5"><Sparkles className="h-3.5 w-3.5 text-accent" /> Disponível para novos projetos</span>
+            <span className="inline-flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> {t.hero.location}</span>
+            <span className="inline-flex items-center gap-1.5"><Sparkles className="h-3.5 w-3.5 text-accent" /> {t.hero.available}</span>
           </div>
         </div>
       </section>
@@ -306,33 +210,35 @@ function Portfolio() {
           <div className="grid gap-12 md:grid-cols-[1fr_2fr] md:gap-16">
             <div>
               <div className="section-eyebrow mb-5">
-                <span className="section-eyebrow-dot" /> Stack
+                <span className="section-eyebrow-dot" /> {t.skills.eyebrow}
               </div>
               <h2 className="text-4xl font-medium leading-tight sm:text-5xl">
-                Habilidades técnicas, mapeadas por intenção.
+                {t.skills.heading}
               </h2>
               <p className="mt-5 text-muted-foreground">
-                Ferramentas escolhidas para entregar clareza analítica e
-                governança — não para impressionar em slide.
+                {t.skills.sub}
               </p>
             </div>
 
             <div className="grid gap-px overflow-hidden rounded-2xl border border-hairline bg-hairline sm:grid-cols-2">
-              {skills.map(({ icon: Icon, title, items }) => (
-                <div key={title} className="group bg-surface-elevated p-6 transition hover:bg-background">
-                  <div className="flex items-center gap-3">
-                    <span className="grid h-10 w-10 place-items-center rounded-lg border border-hairline bg-surface text-foreground transition group-hover:border-accent group-hover:text-accent">
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <h3 className="font-display text-lg font-medium tracking-tight">{title}</h3>
+              {t.skills.groups.map(({ title, items }, gi) => {
+                const Icon = skillIcons[gi];
+                return (
+                  <div key={title} className="group bg-surface-elevated p-6 transition hover:bg-background">
+                    <div className="flex items-center gap-3">
+                      <span className="grid h-10 w-10 place-items-center rounded-lg border border-hairline bg-surface text-foreground transition group-hover:border-accent group-hover:text-accent">
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <h3 className="font-display text-lg font-medium tracking-tight">{title}</h3>
+                    </div>
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {items.map((it) => (
+                        <li key={it} className="tag-chip">{it}</li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {items.map((it) => (
-                      <li key={it} className="tag-chip">{it}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -344,16 +250,14 @@ function Portfolio() {
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <div className="section-eyebrow mb-5">
-                <span className="section-eyebrow-dot" /> Projetos selecionados
+                <span className="section-eyebrow-dot" /> {t.cases.eyebrow}
               </div>
               <h2 className="text-4xl font-medium leading-tight sm:text-5xl">
-                Quatro cases. Contextos distintos. <span className="italic text-accent">Um padrão de impacto.</span>
+                {t.cases.headingA}<span className="italic text-accent">{t.cases.headingB}</span>
               </h2>
             </div>
             <p className="text-sm text-muted-foreground md:max-w-xs">
-              Cada projeto é documentado conforme o sigilo da operação — de
-              repositório público a recriações com dados fictícios e registros
-              de trabalho interno.
+              {t.cases.note}
             </p>
           </div>
 
@@ -363,23 +267,28 @@ function Portfolio() {
                 <BookOpen className="h-5 w-5" />
               </span>
               <div>
-                <h3 className="font-display text-sm font-medium text-foreground">Transparência conforme o sigilo de cada projeto</h3>
+                <h3 className="font-display text-sm font-medium text-foreground">{t.cases.boxTitle}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Mostro o trabalho da forma mais aberta que cada contexto permite: <strong className="text-foreground">repositório público</strong> quando o projeto é demonstrativo (com .pbix, DAX e queries documentados), <strong className="text-foreground">recriação com dados 100% fictícios</strong> quando a operação é confidencial, e <strong className="text-foreground">descrição honesta</strong> quando foi trabalho interno não publicado. Nunca dados reais ou informações sigilosas — é assim que demonstro método sem violar sigilo.
+                  {t.cases.box.p1}<strong className="text-foreground">{t.cases.box.s1}</strong>{t.cases.box.p2}<strong className="text-foreground">{t.cases.box.s2}</strong>{t.cases.box.p3}<strong className="text-foreground">{t.cases.box.s3}</strong>{t.cases.box.p4}
                 </p>
               </div>
             </div>
           </div>
 
           <ol className="mt-14 space-y-px overflow-hidden rounded-2xl border border-hairline bg-hairline">
-            {projects.map((p) => {
-              const isConfidential = !p.href;
+            {projectsMeta.map((meta) => {
+              const p = t.projects[meta.n];
+              const isConfidential = !meta.href;
+              const gallery = meta.gallerySrc?.map((src, i) => ({
+                src,
+                caption: (p as { gallery?: readonly string[] }).gallery?.[i] ?? "",
+              }));
               const innerContent = (
                 <>
                   <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-6">
                     <div className="min-w-0">
                       <div className="flex items-center gap-3 text-xs">
-                        <span className="font-mono text-muted-foreground">{p.n}</span>
+                        <span className="font-mono text-muted-foreground">{meta.n}</span>
                         <span className="h-px w-8 bg-hairline" />
                         <span className="uppercase tracking-wider text-muted-foreground">{p.client}</span>
                       </div>
@@ -390,15 +299,15 @@ function Portfolio() {
                       {isConfidential ? (
                         <>
                           <p className="mt-3 max-w-2xl text-xs italic text-muted-foreground">
-                            {CONFIDENTIAL_NOTES[p.n]?.nota ?? "Trabalho interno — sem repositório público."}
+                            {p.nota || t.cases.fallbackNote}
                           </p>
                           <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-hairline bg-surface px-2.5 py-1 text-xs font-medium text-muted-foreground">
-                            <Lock className="h-3 w-3" /> {CONFIDENTIAL_NOTES[p.n]?.selo ?? "Sem repositório público"}
+                            <Lock className="h-3 w-3" /> {p.selo || t.cases.noRepo}
                           </div>
                         </>
                       ) : (
                         <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent">
-                          <BookOpen className="h-3 w-3" /> Repositório documentado
+                          <BookOpen className="h-3 w-3" /> {t.cases.documented}
                         </div>
                       )}
 
@@ -415,29 +324,29 @@ function Portfolio() {
                     )}
                   </div>
 
-                  {p.n === "01" && (
+                  {meta.n === "01" && (
                     <figure className="mt-8 overflow-hidden rounded-xl border border-hairline bg-background">
                       <div className="flex items-center justify-between border-b border-hairline bg-surface px-4 py-2 text-[10px] uppercase tracking-wider text-muted-foreground">
                         <span className="inline-flex items-center gap-2">
-                          <Lock className="h-3 w-3" /> Mockup ilustrativo · dados 100% fictícios
+                          <Lock className="h-3 w-3" /> {t.cases.mockupChip}
                         </span>
-                        <span className="font-mono">Recriação interativa</span>
+                        <span className="font-mono">{t.cases.interactive}</span>
                       </div>
                       <ReservaSerenaDashboard />
                     </figure>
                   )}
 
-                  {p.visual && (
+                  {meta.visual && (
                     <figure className="mt-8 overflow-hidden rounded-xl border border-hairline bg-background">
                       <div className="flex items-center justify-between border-b border-hairline bg-surface px-4 py-2 text-[10px] uppercase tracking-wider text-muted-foreground">
                         <span className="inline-flex items-center gap-2">
-                          <Lock className="h-3 w-3" /> Mockup ilustrativo · dados 100% fictícios
+                          <Lock className="h-3 w-3" /> {t.cases.mockupChip}
                         </span>
-                        <span className="font-mono">Power BI · Layout original</span>
+                        <span className="font-mono">{t.cases.originalLayout}</span>
                       </div>
                       <img
-                        src={p.visual}
-                        alt={`Mockup do dashboard ${p.title}`}
+                        src={meta.visual}
+                        alt={t.cases.mockupAlt(p.title)}
                         width={1536}
                         height={1024}
                         loading="lazy"
@@ -446,18 +355,18 @@ function Portfolio() {
                     </figure>
                   )}
 
-                  {p.wireframe && (
+                  {meta.wireframe && (
                     <div className="mt-8">
                       <div className="mb-3 flex items-center justify-between text-[10px] uppercase tracking-wider text-muted-foreground">
-                        <span>Estrutura · {p.wireframe.length} páginas</span>
+                        <span>{t.cases.structure(meta.wireframe.length)}</span>
                         <span className="font-mono">wireframe</span>
                       </div>
                       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                        {p.wireframe.map((pg) => (
+                        {meta.wireframe.map((pg) => (
                           <div key={pg.name} className="rounded-lg border border-hairline bg-surface p-3">
                             <div className="mb-2 flex items-center justify-between">
                               <span className="text-xs font-medium text-foreground">{pg.name}</span>
-                              <span className="font-mono text-[10px] text-muted-foreground">{pg.blocks.length} blocos</span>
+                              <span className="font-mono text-[10px] text-muted-foreground">{t.cases.blocks(pg.blocks.length)}</span>
                             </div>
                             <div className="grid grid-cols-3 gap-1">
                               {pg.blocks.map((b, idx) => (
@@ -481,18 +390,18 @@ function Portfolio() {
                     </div>
                   )}
 
-                  {p.gallery && (
+                  {gallery && (
                     <div className="mt-8">
                       <div className="mb-3 flex items-center justify-between text-[10px] uppercase tracking-wider text-muted-foreground">
                         <span className="inline-flex items-center gap-2">
-                          <BarChart3 className="h-3 w-3" /> Dashboards do projeto · dados fictícios
+                          <BarChart3 className="h-3 w-3" /> {t.cases.galleryHeader}
                         </span>
                         <span className="font-mono">Power BI</span>
                       </div>
                       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                        {p.gallery.map((g) => (
+                        {gallery.map((g) => (
                           <figure
-                            key={g.caption}
+                            key={g.src}
                             className="overflow-hidden rounded-xl border border-hairline bg-background"
                           >
                             <img
@@ -522,12 +431,12 @@ function Portfolio() {
                 </>
               );
               return (
-                <li key={p.n} className="group bg-surface-elevated">
+                <li key={meta.n} className="group bg-surface-elevated">
                   {isConfidential ? (
                     <div className="block p-8 sm:p-10">{innerContent}</div>
                   ) : (
                     <a
-                      href={p.href}
+                      href={meta.href}
                       target="_blank"
                       rel="noreferrer"
                       className="block p-8 transition hover:bg-background sm:p-10"
@@ -546,56 +455,34 @@ function Portfolio() {
       <section id="experiencia" className="border-t border-hairline bg-surface">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <div className="section-eyebrow mb-5">
-            <span className="section-eyebrow-dot" /> Trajetória
+            <span className="section-eyebrow-dot" /> {t.experience.eyebrow}
           </div>
           <h2 className="max-w-3xl text-4xl font-medium leading-tight sm:text-5xl">
-            Mais de uma década de trajetória, com foco crescente em dados e BI.
+            {t.experience.heading}
           </h2>
 
           <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-hairline bg-hairline md:grid-cols-2">
-            {[
-              {
-                role: "Analista de Dados — Gestão Operacional",
-                org: "NRM Gestão em Carteira LTDA",
-                when: "Set/2025 — Mar/2026 · Curitiba/PR · Híbrido (PJ)",
-                icon: LineChart,
-              },
-              {
-                role: "Gerente Proprietário",
-                org: "Conserta Smart — Quatro Barras",
-                when: "Jan/2023 — Dez/2023 · Presencial",
-                icon: Workflow,
-              },
-              {
-                role: "Field Quality Specialist (FQS)",
-                org: "Nielsen Brasil",
-                when: "Jul/2015 — Mai/2018 · Curitiba/PR",
-                icon: ShieldCheck,
-              },
-              {
-                role: "Auxiliar Administrativo",
-                org: "Nielsen Brasil",
-                when: "Mar/2013 — Jul/2015 · Curitiba/PR",
-                icon: TableProperties,
-              },
-            ].map(({ role, org, when, icon: Icon }) => (
-              <article key={role} className="bg-surface-elevated p-8">
-                <div className="flex items-center gap-3">
-                  <span className="grid h-10 w-10 place-items-center rounded-lg border border-hairline text-accent">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <h3 className="font-display text-lg font-medium tracking-tight">{role}</h3>
-                </div>
-                <p className="mt-4 text-sm font-medium text-foreground">{org}</p>
-                <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{when}</p>
-              </article>
-            ))}
+            {t.experience.roles.map(({ role, org, when }, ri) => {
+              const Icon = experienceIcons[ri];
+              return (
+                <article key={role} className="bg-surface-elevated p-8">
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-10 w-10 place-items-center rounded-lg border border-hairline text-accent">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <h3 className="font-display text-lg font-medium tracking-tight">{role}</h3>
+                  </div>
+                  <p className="mt-4 text-sm font-medium text-foreground">{org}</p>
+                  <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{when}</p>
+                </article>
+              );
+            })}
           </div>
 
           <div className="mt-10 flex flex-wrap gap-3">
-            <span className="tag-chip">Curso de Analista de BI — DNC Group · 2025</span>
-            <span className="tag-chip">Especialista em Power BI — Empowerdata · 2025</span>
-            <span className="tag-chip">Bacharel · Ciências Sociais — UFPR</span>
+            {t.experience.certs.map((c) => (
+              <span key={c} className="tag-chip">{c}</span>
+            ))}
           </div>
         </div>
       </section>
@@ -606,14 +493,13 @@ function Portfolio() {
           <div className="grid gap-12 rounded-3xl border border-hairline bg-primary p-10 text-primary-foreground sm:p-14 md:grid-cols-[2fr_1fr] md:gap-16">
             <div>
               <div className="section-eyebrow mb-5 !text-primary-foreground/70">
-                <span className="section-eyebrow-dot" /> Próximo passo
+                <span className="section-eyebrow-dot" /> {t.contact.eyebrow}
               </div>
               <h2 className="text-4xl font-medium leading-tight sm:text-5xl">
-                Tem dados parados gerando ruído? <span className="italic text-accent">Vamos conversar.</span>
+                {t.contact.headingA}<span className="italic text-accent">{t.contact.headingB}</span>
               </h2>
               <p className="mt-5 max-w-xl text-primary-foreground/70">
-                Resposta em até 24h úteis. Atendo projetos pontuais, squads
-                multidisciplinares e operações executivas recorrentes.
+                {t.contact.body}
               </p>
 
               <div className="mt-10 flex flex-wrap gap-3">
@@ -647,7 +533,7 @@ function Portfolio() {
               </li>
               <li>
                 <div className="flex items-center justify-between gap-4 text-sm">
-                  <span className="inline-flex items-center gap-3 text-primary-foreground/80"><MapPin className="h-4 w-4" /> Curitiba — PR</span>
+                  <span className="inline-flex items-center gap-3 text-primary-foreground/80"><MapPin className="h-4 w-4" /> {t.contact.location}</span>
                 </div>
               </li>
             </ul>
@@ -657,8 +543,8 @@ function Portfolio() {
 
       <footer className="border-t border-hairline">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-6 py-8 text-xs text-muted-foreground sm:flex-row sm:items-center">
-          <span>© {new Date().getFullYear()} Luiz Eduardo Silva e Silva. Todos os direitos reservados.</span>
-          <span className="font-mono">Analista de Dados · BI · Governança</span>
+          <span>© {new Date().getFullYear()} Luiz Eduardo Silva e Silva. {t.footer.rights}</span>
+          <span className="font-mono">{t.footer.tagline}</span>
         </div>
       </footer>
     </div>

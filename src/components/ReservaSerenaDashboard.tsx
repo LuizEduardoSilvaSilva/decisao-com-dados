@@ -8,58 +8,31 @@ import {
   LifeBuoy,
 } from "lucide-react";
 
-const kpis = [
-  {
-    icon: TrendingDown,
-    label: "VGV acumulado",
-    value: "R$ 38,2 mi",
-    meta: "meta R$ 41,0 mi · −6,8%",
-    negative: true,
-  },
-  {
-    icon: Users,
-    label: "Cotas vendidas (ano)",
-    value: "824",
-    meta: "meta 960 · −14%",
-    negative: true,
-  },
-  {
-    icon: Target,
-    label: "Eficiência de vendas",
-    value: "22,9%",
-    meta: "meta 25,0% · −2,1 p.p.",
-    negative: true,
-  },
-  {
-    icon: AlertTriangle,
-    label: "Inadimplência da base",
-    value: "31,5%",
-    meta: "base ativa 2.740 cotas · −0,8 p.p.",
-    negative: false,
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
-const months = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+const kpiIcons = [TrendingDown, Users, Target, AlertTriangle];
+
 const orcado = [88, 95, 132, 140, 120, 150, 169, 142, 120, 120, 120, 138];
 const realizado = [96, 90, 128, 138, 111, 141, 150, 0, 0, 0, 0, 0];
 const maxCotas = Math.max(...orcado, ...realizado);
 
-const aging = [
-  { faixa: "Até 30d", pct: 9.2, tone: "color-mix(in oklab, var(--accent) 85%, transparent)" },
-  { faixa: "30–59d", pct: 7.5, tone: "color-mix(in oklab, var(--accent) 72%, transparent)" },
-  { faixa: "60–89d", pct: 5.1, tone: "color-mix(in oklab, var(--accent) 60%, transparent)" },
-  { faixa: "90–119d", pct: 6.8, tone: "color-mix(in oklab, var(--accent) 48%, transparent)" },
-  { faixa: "120–149d", pct: 4.3, tone: "color-mix(in oklab, var(--accent) 38%, transparent)" },
-  { faixa: "150–179d", pct: 5.6, tone: "color-mix(in oklab, var(--accent) 28%, transparent)" },
-  { faixa: "180d+", pct: 61.5, tone: "var(--destructive)" },
+const agingTones = [
+  "color-mix(in oklab, var(--accent) 85%, transparent)",
+  "color-mix(in oklab, var(--accent) 72%, transparent)",
+  "color-mix(in oklab, var(--accent) 60%, transparent)",
+  "color-mix(in oklab, var(--accent) 48%, transparent)",
+  "color-mix(in oklab, var(--accent) 38%, transparent)",
+  "color-mix(in oklab, var(--accent) 28%, transparent)",
+  "var(--destructive)",
 ];
-const maxAging = Math.max(...aging.map((a) => a.pct));
+const agingPcts = [9.2, 7.5, 5.1, 6.8, 4.3, 5.6, 61.5];
+const maxAging = Math.max(...agingPcts);
 
-const funnel = [
-  { label: "Solicitações", n: 63, pct: 100 },
-  { label: "Acionadas", n: 55, pct: 87 },
-  { label: "Negociadas", n: 39, pct: 62 },
-  { label: "Contidas", n: 45, pct: 71 },
+const funnelData = [
+  { n: 63, pct: 100 },
+  { n: 55, pct: 87 },
+  { n: 39, pct: 62 },
+  { n: 45, pct: 71 },
 ];
 
 function usePrefersReducedMotion() {
@@ -75,11 +48,13 @@ function usePrefersReducedMotion() {
 }
 
 export default function ReservaSerenaDashboard() {
+  const { t } = useLanguage();
+  const d = t.dash;
   const reduced = usePrefersReducedMotion();
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setMounted(true), reduced ? 0 : 60);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => setMounted(true), reduced ? 0 : 60);
+    return () => clearTimeout(timer);
   }, [reduced]);
 
   const grow = (finalPct: number) =>
@@ -90,6 +65,11 @@ export default function ReservaSerenaDashboard() {
   const estoque = 610;
   const total = baseAtiva + estoque;
   const baseAngle = (baseAtiva / total) * 360;
+  const numberFmt = t.dash.months[0] === "jan" ? "pt" : "en";
+  const fmt = (n: number) =>
+    numberFmt === "pt" ? n.toLocaleString("pt-BR") : n.toLocaleString("en-US");
+  const pct = (n: number) =>
+    numberFmt === "pt" ? n.toFixed(1).replace(".", ",") : n.toFixed(1);
 
   return (
     <div className="bg-background p-4 sm:p-6">
@@ -97,44 +77,47 @@ export default function ReservaSerenaDashboard() {
       <div className="flex flex-col gap-4 border-b border-hairline pb-5 sm:flex-row sm:items-end sm:justify-between">
         <div className="min-w-0">
           <div className="section-eyebrow mb-2">
-            <span className="section-eyebrow-dot" /> Painel Executivo de Carteira
+            <span className="section-eyebrow-dot" /> {d.eyebrow}
           </div>
           <h4 className="font-display text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
-            Reserva Serena Resort
+            {d.title}
           </h4>
           <p className="mt-1 text-xs text-muted-foreground">
-            Multipropriedade · consolidado de empreendimentos · fechamento mensal
+            {d.sub}
           </p>
         </div>
         <div className="flex items-center gap-3">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-accent">
-            Dados fictícios
+            {d.badge}
           </span>
           <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-            Jul / 2026
+            {d.period}
           </span>
         </div>
       </div>
 
       {/* KPIs */}
       <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {kpis.map(({ icon: Icon, label, value, meta }) => (
-          <div
-            key={label}
-            className="rounded-lg border border-hairline bg-surface-elevated p-4"
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
-                {label}
-              </span>
-              <Icon className="h-3.5 w-3.5 text-accent" />
+        {d.kpis.map(({ label, value, meta }, i) => {
+          const Icon = kpiIcons[i];
+          return (
+            <div
+              key={label}
+              className="rounded-lg border border-hairline bg-surface-elevated p-4"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                  {label}
+                </span>
+                <Icon className="h-3.5 w-3.5 text-accent" />
+              </div>
+              <div className="mt-2 font-display text-2xl font-medium tracking-tight text-foreground">
+                {value}
+              </div>
+              <div className="mt-1 text-[11px] text-muted-foreground">{meta}</div>
             </div>
-            <div className="mt-2 font-display text-2xl font-medium tracking-tight text-foreground">
-              {value}
-            </div>
-            <div className="mt-1 text-[11px] text-muted-foreground">{meta}</div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Row: comercial + aging */}
@@ -144,21 +127,21 @@ export default function ReservaSerenaDashboard() {
           <div className="mb-3 flex items-center justify-between">
             <div>
               <h5 className="font-display text-sm font-medium text-foreground">
-                Comercial — cotas orçado × realizado
+                {d.commercialTitle}
               </h5>
-              <p className="text-[11px] text-muted-foreground">12 meses · 2026</p>
+              <p className="text-[11px] text-muted-foreground">{d.commercialSub}</p>
             </div>
             <div className="flex items-center gap-3 text-[10px] uppercase tracking-wider text-muted-foreground">
               <span className="inline-flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-sm bg-primary/40" /> Orçado
+                <span className="h-2 w-2 rounded-sm bg-primary/40" /> {d.budget}
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-sm bg-accent" /> Realizado
+                <span className="h-2 w-2 rounded-sm bg-accent" /> {d.actual}
               </span>
             </div>
           </div>
           <div className="flex h-40 items-end gap-1.5">
-            {months.map((m, i) => {
+            {d.months.map((m, i) => {
               const oH = (orcado[i] / maxCotas) * 100;
               const rH = (realizado[i] / maxCotas) * 100;
               return (
@@ -170,12 +153,12 @@ export default function ReservaSerenaDashboard() {
                     <div
                       className="w-1/2 rounded-sm bg-primary/30 transition-[height] duration-700 ease-out"
                       style={{ height: grow(oH) }}
-                      title={`Orçado ${orcado[i]}`}
+                      title={`${d.budget} ${orcado[i]}`}
                     />
                     <div
                       className="w-1/2 rounded-sm bg-accent transition-[height] duration-700 ease-out"
                       style={{ height: grow(rH) }}
-                      title={`Realizado ${realizado[i]}`}
+                      title={`${d.actual} ${realizado[i]}`}
                     />
                   </div>
                   <span className="font-mono text-[9px] uppercase text-muted-foreground">
@@ -191,26 +174,29 @@ export default function ReservaSerenaDashboard() {
         <div className="rounded-lg border border-hairline bg-surface-elevated p-4">
           <div className="mb-3">
             <h5 className="font-display text-sm font-medium text-foreground">
-              Aging da inadimplência
+              {d.agingTitle}
             </h5>
             <p className="text-[11px] text-muted-foreground">
-              % do valor em atraso por faixa
+              {d.agingSub}
             </p>
           </div>
           <div className="space-y-2">
-            {aging.map((a) => (
-              <div key={a.faixa} className="grid grid-cols-[72px_1fr_44px] items-center gap-2">
+            {d.agingBuckets.map((faixa, i) => (
+              <div key={faixa} className="grid grid-cols-[72px_1fr_44px] items-center gap-2">
                 <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                  {a.faixa}
+                  {faixa}
                 </span>
                 <div className="h-3 overflow-hidden rounded-sm bg-surface">
                   <div
                     className="h-full transition-[width] duration-700 ease-out"
-                    style={{ width: grow((a.pct / maxAging) * 100), backgroundColor: a.tone }}
+                    style={{
+                      width: grow((agingPcts[i] / maxAging) * 100),
+                      backgroundColor: agingTones[i],
+                    }}
                   />
                 </div>
                 <span className="text-right font-mono text-[11px] text-foreground">
-                  {a.pct.toFixed(1)}%
+                  {pct(agingPcts[i])}%
                 </span>
               </div>
             ))}
@@ -224,7 +210,7 @@ export default function ReservaSerenaDashboard() {
         <div className="rounded-lg border border-hairline bg-surface-elevated p-4">
           <div className="mb-3 flex items-center justify-between">
             <h5 className="font-display text-sm font-medium text-foreground">
-              Base ativa × estoque
+              {d.donutTitle}
             </h5>
             <PieChart className="h-3.5 w-3.5 text-accent" />
           </div>
@@ -234,42 +220,38 @@ export default function ReservaSerenaDashboard() {
               style={{
                 background: `conic-gradient(var(--accent) 0deg ${baseAngle}deg, color-mix(in oklab, var(--primary) 25%, transparent) ${baseAngle}deg 360deg)`,
               }}
-              aria-label="Distribuição base ativa e estoque"
+              aria-label={d.donutAria}
             >
               <div className="absolute inset-3 flex flex-col items-center justify-center rounded-full bg-surface-elevated text-center">
                 <span className="font-display text-lg font-medium text-foreground">
-                  2.900
+                  {fmt(2900)}
                 </span>
                 <span className="text-[9px] uppercase tracking-wider text-muted-foreground">
-                  cotas comerc.
+                  {d.donutCenterSub}
                 </span>
               </div>
             </div>
             <div className="flex-1 space-y-2 text-xs">
               <div className="flex items-center justify-between gap-2">
                 <span className="inline-flex items-center gap-1.5 text-muted-foreground">
-                  <span className="h-2 w-2 rounded-sm bg-accent" /> Base ativa
+                  <span className="h-2 w-2 rounded-sm bg-accent" /> {d.activeBase}
                 </span>
-                <span className="font-mono text-foreground">2.740</span>
+                <span className="font-mono text-foreground">{fmt(2740)}</span>
               </div>
               <div className="flex items-center justify-between gap-2">
                 <span className="inline-flex items-center gap-1.5 text-muted-foreground">
-                  <span className="h-2 w-2 rounded-sm bg-primary/25" /> Estoque
+                  <span className="h-2 w-2 rounded-sm bg-primary/25" /> {d.inventory}
                 </span>
-                <span className="font-mono text-foreground">610</span>
+                <span className="font-mono text-foreground">{fmt(estoque)}</span>
               </div>
               <div className="flex items-center justify-between gap-2 border-t border-hairline pt-2">
-                <span className="text-muted-foreground">Comercializadas</span>
-                <span className="font-mono text-foreground">2.900</span>
+                <span className="text-muted-foreground">{d.commercialized}</span>
+                <span className="font-mono text-foreground">{fmt(2900)}</span>
               </div>
             </div>
           </div>
           <div className="mt-4 grid grid-cols-3 gap-2 border-t border-hairline pt-3">
-            {[
-              { k: "VSO", v: "9 meses de estoque" },
-              { k: "Ticket médio", v: "R$ 53k entrada/cota" },
-              { k: "Safra origin.", v: "2026" },
-            ].map((s) => (
+            {d.stats.map((s) => (
               <div key={s.k}>
                 <div className="text-[9px] uppercase tracking-wider text-muted-foreground">
                   {s.k}
@@ -287,33 +269,33 @@ export default function ReservaSerenaDashboard() {
           <div className="mb-3 flex items-center justify-between">
             <div>
               <h5 className="font-display text-sm font-medium text-foreground">
-                Pós-vendas — contenção
+                {d.funnelTitle}
               </h5>
               <p className="text-[11px] text-muted-foreground">
-                funil de solicitações de cancelamento
+                {d.funnelSub}
               </p>
             </div>
             <LifeBuoy className="h-3.5 w-3.5 text-accent" />
           </div>
           <div className="space-y-2">
-            {funnel.map((f) => (
-              <div key={f.label} className="grid grid-cols-[110px_1fr_64px] items-center gap-2">
-                <span className="text-[11px] text-muted-foreground">{f.label}</span>
+            {d.funnelSteps.map((label, i) => (
+              <div key={label} className="grid grid-cols-[110px_1fr_64px] items-center gap-2">
+                <span className="text-[11px] text-muted-foreground">{label}</span>
                 <div className="h-4 overflow-hidden rounded-sm bg-surface">
                   <div
                     className="h-full bg-accent/70 transition-[width] duration-700 ease-out"
-                    style={{ width: grow(f.pct) }}
+                    style={{ width: grow(funnelData[i].pct) }}
                   />
                 </div>
                 <span className="text-right font-mono text-[11px] text-foreground">
-                  {f.n} · {f.pct}%
+                  {funnelData[i].n} · {funnelData[i].pct}%
                 </span>
               </div>
             ))}
           </div>
           <div className="mt-4 rounded-md border border-accent/30 bg-accent/10 px-3 py-2 text-xs text-accent">
-            <span className="font-medium">Taxa de contenção (save rate) — Jul/26:</span>{" "}
-            <span className="font-display text-base font-medium">71,4%</span>
+            <span className="font-medium">{d.saveRate}</span>{" "}
+            <span className="font-display text-base font-medium">{d.saveRateValue}</span>
           </div>
         </div>
       </div>
