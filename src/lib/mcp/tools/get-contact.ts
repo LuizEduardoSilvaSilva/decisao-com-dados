@@ -10,7 +10,7 @@ export default defineTool({
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => {
     const contact = {
-      email: "luiz.e.silva.silva@gmail.com",
+      email: "decisaocomdados.bi@gmail.com",
       phone: "+55 41 98902-3978",
       linkedin: "https://www.linkedin.com/in/luizsilvaesilva/",
       github: "https://github.com/LuizEduardoSilvaSilva",
