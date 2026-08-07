@@ -281,7 +281,7 @@ function PortfolioContent() {
               const isConfidential = !meta.href;
               const gallery = meta.gallerySrc?.map((src, i) => ({
                 src,
-                caption: (p.gallery as readonly string[] | undefined)?.[i] ?? "",
+                caption: (p as { gallery?: readonly string[] }).gallery?.[i] ?? "",
               }));
               const innerContent = (
                 <>
