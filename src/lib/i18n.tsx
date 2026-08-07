@@ -20,6 +20,10 @@ export const dict = {
     },
     hero: {
       role: "Analista de Dados & BI",
+      titleName: "Luiz Eduardo Silva e Silva",
+      titleRole: "Analista de Dados & BI",
+      bannerSubtitle:
+        "Especialista em Power BI, SQL e Governança · Dashboards executivos que viram decisão",
       paragraph: {
         before: "Sou ",
         name: "Luiz Eduardo Silva e Silva",
@@ -262,6 +266,10 @@ export const dict = {
     },
     hero: {
       role: "Data & BI Analyst",
+      titleName: "Luiz Eduardo Silva e Silva",
+      titleRole: "Data & BI Analyst",
+      bannerSubtitle:
+        "Power BI, SQL & Governance specialist · Executive dashboards that drive decisions",
       paragraph: {
         before: "I'm ",
         name: "Luiz Eduardo Silva e Silva",
