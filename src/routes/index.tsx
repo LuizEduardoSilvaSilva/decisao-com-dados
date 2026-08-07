@@ -533,10 +533,12 @@ function PortfolioContent() {
                   <Mail className="h-4 w-4" /> luiz.e.silva.silva@gmail.com
                 </a>
                 <a
-                  href="tel:+5541989023978"
+                  href={`https://wa.me/5541989023978?text=${encodeURIComponent(t.contact.whatsappText)}`}
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 px-6 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary-foreground/10"
                 >
-                  (41) 98902-3978
+                  <WhatsAppIcon className="h-4 w-4" style={{ color: "#25D366" }} /> (41) 98902-3978
                 </a>
               </div>
             </div>
