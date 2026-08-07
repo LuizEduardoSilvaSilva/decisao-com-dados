@@ -18,7 +18,7 @@ import {
   BookOpen,
 } from "lucide-react";
 
-import heroBanner from "@/assets/hero-banner.png";
+import heroBg from "@/assets/hero-bg.png";
 import logoIcon from "@/assets/logo-icon.png";
 import painelCarteira01 from "@/assets/painel-carteira/01_carteira.png";
 import painelCarteira02 from "@/assets/painel-carteira/02_painel_cliente.png";
@@ -155,16 +155,31 @@ function PortfolioContent() {
       <section id="top" className="relative overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-70" aria-hidden />
         <div className="relative mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <h1 className="sr-only">
-            Luiz Eduardo Silva e Silva — {t.hero.role}
-          </h1>
-          <img
-            src={heroBanner}
-            alt={`Luiz Eduardo Silva e Silva — ${t.hero.role}`}
-            className="w-full rounded-xl border border-hairline shadow-elevated"
-            width={1372}
-            height={784}
-          />
+          <div className="relative w-full overflow-hidden rounded-xl border border-hairline shadow-elevated">
+            <img
+              src={heroBg}
+              alt=""
+              aria-hidden
+              className="h-full w-full object-cover"
+              width={1536}
+              height={864}
+            />
+            <div
+              className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/65"
+              aria-hidden
+            />
+            <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-8">
+              <div className="max-w-3xl rounded-xl border border-white/10 bg-black/35 px-5 py-6 text-center backdrop-blur-md sm:px-10 sm:py-9">
+                <h1 className="font-display text-2xl font-medium leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+                  {t.hero.titleName}{" "}
+                  <span className="text-accent">— {t.hero.titleRole}</span>
+                </h1>
+                <p className="mx-auto mt-3 max-w-2xl text-[11px] leading-relaxed text-white/75 sm:mt-4 sm:text-sm">
+                  {t.hero.bannerSubtitle}
+                </p>
+              </div>
+            </div>
+          </div>
 
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             {t.hero.paragraph.before}
