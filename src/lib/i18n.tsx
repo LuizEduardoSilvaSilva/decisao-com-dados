@@ -179,7 +179,7 @@ export const dict = {
         {
           role: "Analista de Dados — Gestão Operacional",
           org: "NRM Gestão em Carteira LTDA",
-          when: "Set/2025 — Mar/2026 · Curitiba/PR · Híbrido (PJ)",
+          when: "Set/2025 — Set/2026 · Curitiba/PR · Híbrido (PJ)",
         },
         {
           role: "Gerente Proprietário",
@@ -421,7 +421,7 @@ export const dict = {
         {
           role: "Data Analyst — Operations Management",
           org: "NRM Gestão em Carteira LTDA",
-          when: "Sep 2025 — Mar 2026 · Curitiba, Brazil · Hybrid (contractor)",
+          when: "Sep 2025 — Sep 2026 · Curitiba, Brazil · Hybrid (contractor)",
         },
         {
           role: "Owner-Manager",
