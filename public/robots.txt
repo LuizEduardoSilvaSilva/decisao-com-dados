@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://luizeduardodev.lovable.app/sitemap.xml
+Sitemap: https://decisaocomdados.pages.dev/sitemap.xml
