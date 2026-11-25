@@ -53,7 +53,7 @@ Consolidação de KPIs de vendas, captação, recebíveis, inadimplência e camp
 | Métrica | Valor |
 |---|---|
 | Empresas atendidas | **4** |
-| Slides automatizados | **83** |
+| Slides executivos (eram 7 páginas) | **83** |
 | Cadência | **Semanal** |
 
 `Power BI` · `DAX` · `Power Query` · `SQL` · `VBA`  
