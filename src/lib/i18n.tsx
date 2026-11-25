@@ -23,7 +23,7 @@ export const dict = {
       titleName: "Luiz Eduardo Silva e Silva",
       titleRole: "Analista de Dados & BI",
       bannerSubtitle:
-        "Especialista em Power BI, SQL e Governança · Dashboards executivos que viram decisão",
+        "Power BI, automação e qualidade de dados · Dashboards executivos que viram decisão",
       paragraph: {
         before: "Sou ",
         name: "Luiz Eduardo Silva e Silva",
@@ -35,7 +35,7 @@ export const dict = {
       meta: [
         { k: "10+", v: "anos de experiência profissional" },
         { k: "4", v: "empreendimentos atendidos simultaneamente" },
-        { k: "83", v: "slides executivos automatizados" },
+        { k: "83", v: "slides executivos (eram 7 páginas)" },
         { k: "6", v: "dashboards em Power BI" },
       ],
       location: "Curitiba — PR · Híbrido / Remoto",
@@ -114,13 +114,13 @@ export const dict = {
         title: "Relatório Executivo de Gestão de Carteira — Multipropriedade (NRM)",
         client: "NRM Gestão em Carteira",
         summary:
-          "Reconstrução de ponta a ponta de um relatório executivo recorrente para uma operação de gestão e recuperação de carteira (BPO) no setor de multipropriedade/timeshare, consolidando 4 empreendimentos e 2 linhas de produto num deck executivo de 83 slides. Estruturei a camada de dados (ingestão e limpeza em Power Query, modelagem e padronização de indicadores entre empreendimentos e áreas), desenvolvi os módulos analíticos em Power BI com medidas DAX e montava o deck executivo final em cadência semanal com fechamento mensal. Assumi sozinho um relatório antes produzido por 2 analistas e ainda ampliei a cobertura analítica — aging de inadimplência, taxa de contenção, VSO e eficiência de conversão passaram a ser visualizados de forma padronizada. Exibido com dados 100% fictícios e vocabulário anonimizado por sigilo contratual.",
+          "Reconstrução de ponta a ponta de um relatório executivo recorrente para uma operação de gestão e recuperação de carteira (BPO) no setor de multipropriedade/timeshare, consolidando 4 empreendimentos e 2 linhas de produto num deck executivo de 83 slides. Estruturei a camada de dados (ingestão e limpeza em Power Query, modelagem e padronização de indicadores entre empreendimentos e áreas), desenvolvi os módulos analíticos em Power BI com medidas DAX e montava o deck executivo final em cadência semanal com fechamento mensal. Assumi sozinho um relatório de no máximo 7 páginas, antes produzido por 2 analistas, e o expandi para 83 slides com métricas e análises novas: aging de inadimplência, taxa de contenção, VSO, taxa de recuperação da inadimplência e conversão das campanhas de cobrança passaram a ser visualizados de forma padronizada. Exibido com dados 100% fictícios e vocabulário anonimizado por sigilo contratual.",
         impact: [
           { k: "83", v: "slides executivos" },
           { k: "4", v: "empreendimentos consolidados" },
           { k: "De 2 p/ 1", v: "assumido sozinho" },
         ],
-        stack: ["Power BI", "DAX", "Power Query", "Modelagem", "SQL"],
+        stack: ["Power BI", "DAX", "Power Query", "Modelagem", "VBA"],
         nota: "Trabalho sob sigilo contratual. Sem repositório público — a operação, os dados e os clientes da NRM são confidenciais. O mockup abaixo é uma recriação com dados 100% fictícios para demonstrar estrutura e método.",
         selo: "Projeto confidencial · sem repositório público",
       },
@@ -270,7 +270,7 @@ export const dict = {
       titleName: "Luiz Eduardo Silva e Silva",
       titleRole: "Data & BI Analyst",
       bannerSubtitle:
-        "Power BI, SQL & Governance specialist · Executive dashboards that drive decisions",
+        "Power BI, automation & data quality · Executive dashboards that drive decisions",
       paragraph: {
         before: "I'm ",
         name: "Luiz Eduardo Silva e Silva",
@@ -282,7 +282,7 @@ export const dict = {
       meta: [
         { k: "10+", v: "years of professional experience" },
         { k: "4", v: "developments served simultaneously" },
-        { k: "83", v: "executive slides automated" },
+        { k: "83", v: "executive slides (up from 7 pages)" },
         { k: "6", v: "Power BI dashboards" },
       ],
       location: "Curitiba, Brazil · Hybrid / Remote",
@@ -356,13 +356,13 @@ export const dict = {
         title: "Recurring Executive Portfolio-Management Report — Timeshare (NRM)",
         client: "NRM Gestão em Carteira",
         summary:
-          "End-to-end rebuild of a recurring executive report for a portfolio-management and receivables-recovery operation (BPO) in the timeshare / shared-ownership sector, consolidating 4 developments and 2 product lines into an 83-slide executive deck. I structured the data layer (ingestion and cleaning in Power Query, modeling and standardization of indicators across developments and areas), built the analytical modules in Power BI with DAX measures, and assembled the final executive deck on a weekly cadence with monthly close. I took over — solo — a report previously produced by two analysts, and still expanded its analytical coverage: delinquency aging, containment rate, VSO and conversion efficiency became standardized visuals. Shown with 100% fictitious data and anonymized vocabulary due to contractual confidentiality.",
+          "End-to-end rebuild of a recurring executive report for a portfolio-management and receivables-recovery operation (BPO) in the timeshare / shared-ownership sector, consolidating 4 developments and 2 product lines into an 83-slide executive deck. I structured the data layer (ingestion and cleaning in Power Query, modeling and standardization of indicators across developments and areas), built the analytical modules in Power BI with DAX measures, and assembled the final executive deck on a weekly cadence with monthly close. I took over, solo, a report of at most 7 pages previously produced by two analysts, and expanded it into 83 slides with new metrics and analyses: delinquency aging, containment rate, VSO, delinquency recovery rate and collection-campaign conversion became standardized visuals. Shown with 100% fictitious data and anonymized vocabulary due to contractual confidentiality.",
         impact: [
           { k: "83", v: "executive slides" },
           { k: "4", v: "developments consolidated" },
           { k: "From 2 to 1", v: "handled solo" },
         ],
-        stack: ["Power BI", "DAX", "Power Query", "Modeling", "SQL"],
+        stack: ["Power BI", "DAX", "Power Query", "Modeling", "VBA"],
         nota: "Work under contractual confidentiality. No public repository — NRM's operation, data and clients are confidential. The mockup below is a recreation with 100% fictitious data to demonstrate structure and method.",
         selo: "Confidential project · no public repository",
       },
