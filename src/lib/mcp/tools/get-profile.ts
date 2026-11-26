@@ -16,7 +16,7 @@ export default defineTool({
       summary:
         "Analista de Dados & BI. Mais de uma década de experiência profissional, com foco dedicado em BI — Power BI, SQL, DAX, modelagem dimensional e governança.",
       links: {
-        portfolio: "https://decisaocomdados.pages.dev",
+        portfolio: "https://decisaocomdados.com.br",
         linkedin: "https://www.linkedin.com/in/luizsilvaesilva/",
         github: "https://github.com/LuizEduardoSilvaSilva",
       },

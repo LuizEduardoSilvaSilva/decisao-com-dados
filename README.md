@@ -226,6 +226,6 @@ Suite de **6 páginas em Power BI** para acompanhamento de inadimplência, contr
 
 ---
 
-<sub>Portfólio: <a href="https://decisaocomdados.pages.dev">decisaocomdados.pages.dev</a> · Todos os cases seguem o método <b>Documentação Pública, Dados Privados</b></sub>
+<sub>Portfólio: <a href="https://decisaocomdados.com.br">decisaocomdados.com.br</a> · Todos os cases seguem o método <b>Documentação Pública, Dados Privados</b></sub>
 
 </div>
