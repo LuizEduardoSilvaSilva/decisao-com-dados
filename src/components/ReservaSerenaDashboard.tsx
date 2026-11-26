@@ -147,9 +147,9 @@ export default function ReservaSerenaDashboard() {
               return (
                 <div
                   key={m}
-                  className="flex min-w-0 flex-1 flex-col items-center gap-0.5"
+                  className="flex h-full min-w-0 flex-1 flex-col items-center gap-0.5"
                 >
-                  <div className="flex h-full w-full items-end justify-center gap-0.5">
+                  <div className="flex min-h-0 w-full flex-1 items-end justify-center gap-0.5">
                     <div
                       className="w-1/2 rounded-sm bg-primary/30 transition-[height] duration-700 ease-out"
                       style={{ height: grow(oH) }}
