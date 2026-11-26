@@ -142,11 +142,11 @@ export const dict = {
         title: "Painel Financeiro & Operacional — Conserta Smart",
         client: "Conserta Smart — Quatro Barras",
         summary:
-          "À frente da operação como gestor-proprietário, construí dashboards de KPIs financeiros e operacionais e automações em Excel/VBA para acompanhar o negócio de perto — do fluxo de caixa ao controle de rotinas. Um exercício completo de transformar a operação do dia a dia em indicadores de gestão.",
+          "À frente da operação como sócio, construí dashboards de KPIs financeiros e operacionais e automações em Excel/VBA para acompanhar o negócio de perto — do fluxo de caixa ao controle de rotinas. Um exercício completo de transformar a operação do dia a dia em indicadores de gestão.",
         impact: [
           { k: "Excel + VBA", v: "automação de rotinas" },
           { k: "KPIs", v: "financeiros e operacionais" },
-          { k: "Gestão proprietária", v: "visão dona do negócio" },
+          { k: "Sócio", v: "visão de dono do negócio" },
         ],
         stack: ["Excel", "VBA", "Macros", "Relatórios"],
         nota: "Trabalho interno da operação própria — sem repositório público. Dashboards e automações construídos para a gestão do negócio.",
@@ -182,7 +182,7 @@ export const dict = {
           when: "Set/2025 — Set/2026 · Curitiba/PR · Híbrido (PJ)",
         },
         {
-          role: "Gerente Proprietário",
+          role: "Sócio",
           org: "Conserta Smart — Quatro Barras",
           when: "Jan/2023 — Dez/2023 · Presencial",
         },
@@ -384,11 +384,11 @@ export const dict = {
         title: "Financial & Operational Dashboard — Conserta Smart",
         client: "Conserta Smart — Quatro Barras",
         summary:
-          "Running the operation as owner-manager, I built dashboards of financial and operational KPIs and Excel/VBA automations to keep a close eye on the business — from cash flow to routine control. A complete exercise in turning day-to-day operations into management indicators.",
+          "Running the operation as a partner, I built dashboards of financial and operational KPIs and Excel/VBA automations to keep a close eye on the business — from cash flow to routine control. A complete exercise in turning day-to-day operations into management indicators.",
         impact: [
           { k: "Excel + VBA", v: "routine automation" },
           { k: "KPIs", v: "financial & operational" },
-          { k: "Owner-managed", v: "owner's-eye view" },
+          { k: "Partner", v: "owner's-eye view" },
         ],
         stack: ["Excel", "VBA", "Macros", "Reporting"],
         nota: "Internal work from my own operation — no public repository. Dashboards and automations built to manage the business.",
@@ -424,7 +424,7 @@ export const dict = {
           when: "Sep 2025 — Sep 2026 · Curitiba, Brazil · Hybrid (contractor)",
         },
         {
-          role: "Owner-Manager",
+          role: "Partner",
           org: "Conserta Smart — Quatro Barras",
           when: "Jan 2023 — Dec 2023 · On-site",
         },
