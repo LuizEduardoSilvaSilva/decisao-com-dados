@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://decisaocomdados.pages.dev/sitemap.xml
+Sitemap: https://decisaocomdados.com.br/sitemap.xml

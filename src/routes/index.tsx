@@ -35,7 +35,7 @@ function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-const SITE_URL = "https://decisaocomdados.pages.dev";
+const SITE_URL = "https://decisaocomdados.com.br";
 const PAGE_TITLE = "Luiz Eduardo Silva e Silva — Analista de Dados & BI";
 const PAGE_DESCRIPTION =
   "Portfólio profissional de Luiz Eduardo Silva e Silva — Analista de Dados & BI. Power BI, SQL, governança e dashboards executivos.";

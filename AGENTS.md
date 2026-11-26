@@ -13,10 +13,10 @@
 
 **O que é:** portfólio profissional de Luiz Eduardo (Analista de Dados & BI), marca "Decisão com Dados". Público.
 
-**Publicação:** Cloudflare Pages, projeto `decisaocomdados` → https://decisaocomdados.pages.dev. Deploy automático a cada push no `main`; branches geram preview.
+**Publicação:** Cloudflare Pages, projeto `decisaocomdados` → https://decisaocomdados.com.br (domínio próprio, registrado no Registro.br, DNS no Cloudflare; `decisaocomdados.pages.dev` continua respondendo). Deploy automático a cada push no `main`; branches geram preview.
 - Build command: `rm -f bun.lock && bun install && NITRO_PRESET=cloudflare_pages bun run build`
 - Output directory: `dist` · Variável de build: `SKIP_DEPENDENCY_INSTALL=1` · Compatibility flag: `nodejs_compat`
-- Endereço oficial usado em canonical/og:url, sitemap, robots.txt e no perfil do MCP: `https://decisaocomdados.pages.dev`. Se um dia mudar (ex.: domínio próprio `decisaocomdados.com.br`), troque em todos esses lugares.
+- Endereço oficial usado em canonical/og:url, sitemap, robots.txt e no perfil do MCP: `https://decisaocomdados.com.br`. Não divulgar o `pages.dev`: o LinkedIn marca links `*.pages.dev` como possível conteúdo mal-intencionado.
 - O endereço antigo do Lovable (`decisaocomdadosbi.lovable.app`) fica no ar temporariamente até todos os links apontarem para o novo.
 
 **Lovable:** projeto "Portfolio BI". Sem banco de dados.
